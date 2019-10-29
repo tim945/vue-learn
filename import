@@ -1,0 +1,12 @@
+export default {
+  components: {
+    'component': (resolve) => {             
+      let filePath = 'filepath/file'
+      if(filePath){          
+        return require([`@/${filePath}.vue`], resolve)
+      }else{
+        return null
+      }
+    }
+  }
+}
