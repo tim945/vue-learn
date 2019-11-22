@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .common-box {
+            margin-right: 30px;
+            height: 100px;
+            width: 200px;
+            line-height: 25px;
+            border: 1px solid black;
+            word-break: break-all;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .box2 {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-box {
+            position: relative;
+        }
+
+        .box2 .content-box .fold-box {
+            position: absolute;
+            top: 0;
+            /* left: 50%; */
+            height: 100%;
+            width: 200%;
+        }
+
+        .box2 .content-box .fold-box::before {
+            content: '';
+            float: right;
+            height: 100%;
+            width: 50%;
+        }
+
+        .box2 .content-box .fold-box .place-hold {
+            height: 100px;
+            width: 50%;
+        }
+
+        .box2 .content-box .fold-box .detail-btn {
+            float: right;
+            margin-top: -25px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 10%, #ffffff 70%);
+            /* padding-left: 30px; */
+            width: 50%;
+            box-sizing: border-box;
+            text-align: right;
+            color: #0084ff;
+        }
+
+        .box2 .content-box .fold-box .detail-btn span {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="common-box box2">
+        <div class="content-box">
+            第一个和最后一个都是符合预期的行为 - 而 vendor hash 发生变化是我们要修复的。幸运的是，可以使用两个插件来解决这个问题。第一个插件是 NamedModulesPlugin，将使用模块的路径，而不是一个数字 identifier。虽然此插件有助于在开发环境下产生更加可读的输出结果，然而其执行时间会有些长。第二个选择是使用
+            <div class="fold-box">
+                <div class="place-hold"></div>
+                <div class="detail-btn"><span>显示详情</span></div>
+            </div>
+        </div>
+    </div>	
+	
+    <div class="common-box box2">
+        <div class="content-box">
+            第一个和最后一个都是符合预期的行为 - 而 vendor hash 发生变化是我们要修复的。幸运的是，可以使用两个插件来解决这个问题。第一个插件是 NamedModulesPlugin，将使用模块的路径，而不是一个数字 identifier。虽然此插件有助于在开发环境下产生更加可读的输出结果，然而其执行时间会有些长。第二个选择是使用
+            <div class="fold-box">
+                <div class="place-hold"></div>
+                <div class="detail-btn"><span>显示详情</span></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
