@@ -1,0 +1,8 @@
+<script>
+watch: {  
+  // 可直接监听父组件相关值的变化
+  '$parent.$parent.value':function(n, o) {
+    // do...
+  }
+}
+</script>
