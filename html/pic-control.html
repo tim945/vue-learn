@@ -1,0 +1,377 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-02-12 11:00:59
+ * @LastEditors: tim
+ * @LastEditTime: 2020-03-02 11:22:23
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+	* {
+		box-sizing: border-box;
+	}
+    #imgBox {
+		position: relative;
+		float: left;
+		width: 480px;
+		height: 600px;
+		border: 1px solid green;
+		overflow: hidden;
+    }    
+    #imgBox img {
+		position: relative;
+		width: 100%;
+		transform-origin:center center;
+		cursor: move;
+    }
+    #showDetails {
+		width:480px; 
+		height:600px;
+		left: 480px;
+		/* float: left; */
+		margin-left: 20px;
+		/* display: none; */
+		position: absolute;
+		overflow: hidden;
+		border: red 1px solid;
+		background-color: #ffffff;		
+    }
+    #showDetails img {
+      position: absolute;
+			transform-origin:center center;
+    }
+
+	#shadow {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: #000;
+		opacity: 0.3;
+		width: 100px;
+		height: 100px;
+		z-index: 100;
+	}
+    </style>
+</head>
+<body>
+	<div id="control" style="width: 480px;">
+		<p>
+			<span id="normal" onclick="normal()">正常</span>
+			<span id="magnify" onclick="magnify()">放大镜</span>
+			<span id="big" onclick="zoom('more')">放大</span>
+			<span id="small" onclick="zoom('less')">缩小</span>
+			<span id="rotate" onclick="rotate()">旋转</span>			
+		</p>	
+	</div>
+
+	<div id="imgBox">
+		<img src="../static/img/p1.png" id="oriImg">
+		<div id="shadow"></div>
+	</div>
+
+	<div id="showDetails">      
+		<img src="../static/img/p1.png" id="magnifyImg" />  
+	</div>
+
+	<script>
+	let deg = 0;    // 图片旋转角度
+	let imgStatus = 'normal';		// 正常 normal, 旋转 rotate 缩放 zoom, 放大镜 magnify/noMagnify
+	let $imgBox = document.querySelector("#imgBox")	// 原始图片容器
+	let $oriImg = $imgBox.querySelector("#oriImg")	// 原始图片
+	let $showDetails = document.querySelector("#showDetails")	// 放大图片容器
+	let $magnifyImg = $showDetails.querySelector("#magnifyImg")			// 放大图片
+	let $mask = document.querySelector("#shadow");
+	let oriImgPotions = $oriImg.getBoundingClientRect();
+	let magnifyImgPotions = $magnifyImg.getBoundingClientRect();
+	let rate = 1;
+	let scale = 1;	
+
+	$oriImg.onload = function() {
+		rate = $oriImg.naturalWidth / $oriImg.width;	// 比例
+	}
+
+	// 加载图片
+	function loadImg() {      
+		let img = new Image();
+		img.onload = () => {
+			rate = $oriImg.naturalWidth / $oriImg.width;	// 比例
+		}
+		img.src = '../static/img/p1.png';  // 调试代码
+	}
+
+	// 正常
+	function normal(rotateDeg) {
+		if (! rotateDeg) {
+			deg = 0;
+		} else if (rotateDeg == -1) {
+
+		}
+		
+		scale = 1;
+		imgStatus = 'normal';
+		
+		$oriImg.removeAttribute('style');
+		$oriImg.style.transform = "rotate("+ deg +"deg) scale("+ scale +")";
+		oriImgPotions = $oriImg.getBoundingClientRect();
+
+		$magnifyImg.removeAttribute('style');
+		$magnifyImg.style.transform = "rotate("+ deg +"deg)";
+		magnifyImgPotions = $magnifyImg.getBoundingClientRect();
+
+		$mask.style.display = 'none';
+	}
+
+	// 放大缩小
+	function zoom(flag) {
+		imgStatus = 'zoom';
+		
+		if (flag == 'more' && scale >= 3) {
+			return;
+		}
+
+		if (flag == 'less' && scale <= 1) {
+			return;
+		}
+
+		if (flag == 'more') {
+			scale += 0.5
+		} else {
+			scale -= 0.5
+		}
+		let transform = $oriImg.style.transform;
+
+		if (transform.indexOf('scale') === -1) {
+			transform += ' scale('+scale+')';
+		} else {
+			transform = transform.replace(/scale\(.*\)$/, 'scale('+scale+')');
+		}	
+		$oriImg.style.transform = transform;	
+	}
+
+	// 旋转
+	function rotate() {
+		normal(-1);
+
+		// debugger		
+		let transform
+		let rotateStyle
+		let transformOriginStyle
+		let transformOriginStyleMagnify
+
+		imgStatus = 'rotate';
+
+		deg -= 90;
+		if (Math.abs(deg) >= 360) {
+			deg = 0;
+		}
+
+		rotateStyle = "rotate("+ deg +"deg)"
+		
+		// 清空 transform 属性
+		oriImg.style.transform  = ""
+
+		// 旋转图片	
+		$oriImg.style.transform = rotateStyle;
+		$magnifyImg.style.transform = rotateStyle;
+
+		setTimeout(() => {
+			// 获取旋转后的图片信息
+			oriImgPotions = $oriImg.getBoundingClientRect();
+			magnifyImgPotions = $magnifyImg.getBoundingClientRect();
+			// 按图片中心旋转
+			transformOriginStyle = (deg == -90 || deg == -270) ? "center "+ oriImgPotions.height/2 + "px":""
+			transformOriginStyleMagnify = (deg == -90 || deg == -270) ? "center "+ $oriImg.naturalWidth/2 + "px":""
+			console.log(transformOriginStyleMagnify)
+			$oriImg.style.transformOrigin = transformOriginStyle;
+			$magnifyImg.style.transformOrigin = transformOriginStyleMagnify;
+		}, 0)		
+	}
+
+	// 放大镜
+	function magnify() {
+		imgStatus = imgStatus == 'magnify'? 'noMagnify':'magnify';
+
+		$imgBox.onmousedown = null;
+		$imgBox.onmousemove = null;
+		$oriImg.style.cursor = "default";
+
+		$imgBox.onmousedown = null;
+		$imgBox.onmousemove = null;
+		$oriImg.style.cursor = "default";
+
+		// 取消放大
+		if (imgStatus == 'noMagnify') {
+			$mask.style.display = 'none';
+			$showDetails.style.display = 'none';
+			return;
+		}
+
+		// 图片不缩放
+		scale = 1;
+		let transform = $oriImg.style.transform;
+
+		if (transform.indexOf('scale') !== -1) {
+			transform = transform.replace(/scale\(.*\)$/, 'scale('+scale+')');
+			$oriImg.style.transform = transform;
+		} 
+
+		$imgBox.onmousemove = function(e){
+			e.preventDefault();
+			
+			if (imgStatus != 'magnify') return;
+
+			imgBoxPotions = $imgBox.getBoundingClientRect();
+			oriImgPotions = $oriImg.getBoundingClientRect();
+
+			console.log(oriImgPotions)
+			// 获取图片、容器的坐标等相关信息
+			let { left:imgBoxPageX, top:imgBoxPageY, width:imgBoxWidth, height:imgBoxHeight } = imgBoxPotions;
+			let { left:imgPageX, top:imgPageY, width:imgWidth, height:imgHeight }= oriImgPotions;
+		
+			// 当前鼠标相对容器imgBox的坐标距离
+			let x = e.pageX - imgBoxPageX
+			let y = e.pageY - imgBoxPageY
+
+			// 当前鼠标相对图片上的坐标距离
+			// let x = e.pageX - imgPageX;
+			// let y = e.pageY - imgPageY;
+			console.log(x, y)
+			if (x < 0) {
+				x = 0;
+			}
+			if (y < 0) {
+				y = 0;
+			}
+
+			// 计算mask相对容器的显示距离
+			let maskX = x - $mask.offsetWidth / 2;
+			let maskY = y - $mask.offsetHeight / 2;			
+
+			/* if (maskX < 0) { // 左边界
+				maskX = 0;
+			} else if (maskX > imgWidth - $mask.offsetWidth) { // 右边界
+				maskX = imgWidth - $mask.offsetWidth;
+			}  */
+			if (maskX < 0) { // 左边界
+				maskX = 0;
+			} else if (maskX > imgBoxWidth - $mask.offsetWidth) { // 右边界
+				maskX = imgBoxWidth - $mask.offsetWidth;
+			} 
+			
+			/* if (maskY < $mask.offsetHeight / 2) {	// 上边界
+				maskY = 0;
+			}	else if (maskY > imgHeight - $mask.offsetHeight) {	// 下边界
+				maskY = imgHeight - $mask.offsetHeight;
+			} */
+			if (maskY < 0) {	// 上边界
+				maskY = 0;
+			}	else if (maskY > imgBoxHeight - $mask.offsetHeight) {	// 下边界
+				maskY = imgBoxHeight - $mask.offsetHeight;
+			}
+			$mask.style.left = maskX + "px";
+			$mask.style.top = maskY + "px";
+
+			// 计算当前鼠标相对图片的距离
+			let imgX = e.pageX - oriImgPotions.x;
+			let imgY = e.pageY - oriImgPotions.y;
+			console.log("big:", imgX, imgY);
+
+			imgX -= $mask.offsetWidth/2;
+			imgY -= $mask.offsetHeight/2;
+
+			// if (imgX < 0) { // X最小值
+			// 	imgX = 0
+			// } 
+			// if (imgY < 0) {	// Y最小值
+			// 	imgY = 0
+			// }
+
+			// if (imgX + $mask.offsetWidth > imgWidth) { // X 最大值
+			// 	$magnifyImg.style.left = 'auto';
+			// 	$magnifyImg.style.top = -(imgY) * rate / 2 + 'px';
+			// 	$magnifyImg.style.right = '0';
+			// 	return
+			// }
+
+			// if (imgY + $mask.offsetHeight > imgHeight) { // Y 最大值
+			// 	$magnifyImg.style.left = -(imgX) * rate / 2 + 'px';
+			// 	$magnifyImg.style.top = 'auto';
+			// 	$magnifyImg.style.bottom = '0';
+			// 	return
+			// }
+
+			// -270deg时，imgX = imgX + 图片左边距
+			if (deg == -270) { 
+				imgX += imgPageX - imgBoxPageX
+			}
+
+			$magnifyImg.style.left = -(imgX) * rate + 'px';
+			$magnifyImg.style.top = -(imgY) * rate + 'px';
+			$magnifyImg.style.right = 'auto';
+			$magnifyImg.style.bottom = 'auto';
+		}
+	}
+
+	$imgBox.onmouseenter = function(e) {
+		if (imgStatus != 'magnify') return;
+		$mask.style.display = 'block';
+		$showDetails.style.display = 'block';
+	}
+
+	$imgBox.onmouseleave = function(e) {
+		$oriImg.style.cursor = 'move';
+		if (imgStatus != 'magnify') return;
+		$mask.style.display = 'none';
+		// $showDetails.style.display = 'none';    
+	}
+
+	$oriImg.onmousedown = function (e) {
+		e.preventDefault();
+
+    let disX = e.clientX - this.offsetLeft;
+		let disY = e.clientY - this.offsetTop;
+		console.log(disX, disY)
+		this.onmousemove = function (e) {          
+			let left = e.clientX - disX;
+			let top = e.clientY - disY;
+			this.style.left = left + "px";
+			this.style.top = top + "px";
+		};
+			// 鼠标停止移动时，事件移除
+		this.onmouseup = function (e) {
+			this.onmousemove = null;
+			this.onmouseup = null;
+		};
+		
+		this.onmouseleave = function(e) {
+			this.onmousemove = null;
+			this.onmouseup = null;
+		}
+        return false
+	};
+	
+	// 鼠标滚动缩放图片
+	$imgBox.onwheel = $imgBox.onmousewheel = (e) => {
+		// 隐藏遮罩、放大图
+		if (imgStatus == 'magnify') {
+			this.magnify();
+			return;
+		}
+
+		if (e.wheelDelta >= 120) {
+			zoom('more'); // 放大
+		} else if (e.wheelDelta <= -120) {
+			zoom('less'); // 缩小
+		}
+	};
+	</script>
+    
+</body>
+</html>

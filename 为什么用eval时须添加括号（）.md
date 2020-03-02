@@ -5,5 +5,8 @@
 举一个例子，例如对象字面量{}，如若不加外层的括号，那么eval会将大括号识别为JavaScript代码块的开始 和结束标记，那么{}将会被认为是执行了一句空语句。
 
 所以下面两个执行结果是不同的：
+
+``` js
 alert(eval("{}"); // return undefined
 alert(eval("({})");// return object[Object]
+```

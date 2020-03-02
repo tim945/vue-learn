@@ -1,10 +1,18 @@
-<template>
+<!--
+ * @Author: tim
+ * @Date: 2020-03-02 10:58:40
+ * @LastEditors: tim
+ * @LastEditTime: 2020-03-02 11:18:35
+ * @Description: 
+ -->
+``` html
 <el-form-item :label="$t('code')" :error="validate(form)" prop="code">
   <el-input v-model.trim="form.code" @keyup.enter.native="search"></el-input>
 </el-form-item>
 </template>
+``` 
 
-<script>
+``` js
 // 返回非空时显示报错
 validate (from) {
   if (! this.isSubmit) return ''
@@ -28,4 +36,4 @@ search() {
     this.queryData()
   })
 },
-</script>
+```

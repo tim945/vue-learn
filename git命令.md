@@ -1,5 +1,6 @@
 本地代码首次推送到远程仓库
 
+``` sh
 git init   // 初始化版本库
 
 git add .   // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件 
@@ -92,3 +93,4 @@ git push --mirror http://github.com/newproject.git
 4.克隆远程仓库到本地。可查看历史版本
 
 git clone http://github.com/newproject.git
+```

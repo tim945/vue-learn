@@ -1,3 +1,4 @@
+``` css
 /* 滚动容器 */
 .el-scroll {
   height: 100%;
@@ -10,3 +11,4 @@
     overflow-x: hidden;
   }
 }
+```

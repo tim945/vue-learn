@@ -1,4 +1,6 @@
 # 在App.vue中添加判断ie和手动修复的方法。
+
+``` js
 export default {
   name: 'App',
   mounted(){
@@ -15,3 +17,4 @@ export default {
     }
   }
 }
+```

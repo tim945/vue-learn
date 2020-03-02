@@ -1,4 +1,5 @@
-方式1：
+``` js
+// 方式1：
 export default {
   components: {
     'component': (resolve) => {             
@@ -12,7 +13,7 @@ export default {
   }
 }
 
-方式2：webpack alias
+// 方式2：webpack alias
 resolve: {
   extensions: ['.js', '.vue', '.json'],
   alias: {
@@ -26,5 +27,4 @@ export default {
     'component': () => import('homePageView')
   }
 }
-
-
+```

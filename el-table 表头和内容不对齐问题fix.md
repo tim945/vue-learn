@@ -1,3 +1,4 @@
+``` css
 /* 表头和内容不对齐问题fix */
 .el-table th.gutter {
   width: 17px !important;
@@ -10,3 +11,4 @@
     border-bottom-width: 0;
   }
 }
+```
