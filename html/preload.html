@@ -1,0 +1,35 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-03-03 10:38:26
+ * @LastEditors: tim
+ * @LastEditTime: 2020-03-03 10:55:23
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 preload、prefetch 预加载页面资源</title>
+  <link rel="preload" href="https://at.alicdn.com/t/font_zck90zmlh7hf47vi.woff" as="font">
+  <link rel="prefetch" href="https://at.alicdn.com/t/font_zck90zmlh7hf47vi.woff" as="font">
+</head>
+
+<body>
+  <p>
+    1.preload 和 prefetch 混用的话，并不会复用资源，而是会重复加载。
+  </p>
+  <p>
+    2.若不确定资源是必定会加载的，则不要错误使用 preload，以免本末倒置，给页面带来更沉重的负担。当然，可以在 PC 中使用 preload 来刷新资源的缓存，但在移动端则需要特别慎重，因为可能会浪费用户的带宽。
+  </p>
+  <p>
+    3.对跨域的文件进行 preload 的时候，我们必须加上 crossorigin 属性：<br />
+    <link rel="preload" as="font" crossorigin href="https://at.alicdn.com/t/font_zck90zmlh7hf47vi.woff"><br />
+    W3 规范是这么解释的：<br />
+    Preload links for CORS enabled resources, such as fonts or images with a crossorigin attribute, must also include a crossorigin attribute, in order for the resource to be properly used.
+  </p>
+
+</body>
+
+</html>
