@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-02-12 11:00:59
  * @LastEditors: tim
- * @LastEditTime: 2020-03-02 11:45:40
+ * @LastEditTime: 2020-03-07 10:03:51
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -307,9 +307,14 @@
 			// 	return
 			// }
 
-			// -270deg时，imgX = imgX + 图片左边距
+			// -270deg时，imgX = imgX + 图片左边距 - 图片style.left
 			if (deg == -270) { 
-				imgX += imgPageX - imgBoxPageX
+				let left = 0
+				let styleLeft = $oriImg.style.left;
+				if (styleLeft) {
+					left = Number(styleLeft.replace(/[^\d-]/g, ''))
+				} 
+				imgX += imgPageX - imgBoxPageX - left
 			}
 
 			$magnifyImg.style.left = -(imgX) * rate + 'px';
