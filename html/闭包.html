@@ -1,0 +1,39 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-03-07 17:51:48
+ * @LastEditors: tim
+ * @LastEditTime: 2020-03-07 17:57:35
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包</title>
+</head>
+
+<body>
+<h3>按照浏览器的标准是如何定义的闭包，总结为三点：</h3>
+
+1、在函数内部定义新函数</br>
+
+2、新函数访问外层函数的局部变量，即访问外层函数环境的活动对象属性</br>
+
+3、新函数执行，创建新函数的执行上下文，外层函数即为闭包</br>
+  <script>
+    function foo() {
+      var num = 20;
+      function bar() {
+        var result = num + 20;
+        console.log(result)
+        return result
+      }
+      bar()
+    }
+    foo()
+  </script>
+</body>
+
+</html>
