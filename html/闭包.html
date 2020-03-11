@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-03-07 17:51:48
  * @LastEditors: tim
- * @LastEditTime: 2020-03-07 17:57:35
+ * @LastEditTime: 2020-03-11 09:57:02
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -25,14 +25,14 @@
   <script>
     function foo() {
       var num = 20;
-      function bar() {
+      return function bar() {
         var result = num + 20;
         console.log(result)
         return result
       }
-      bar()
+      // bar()
     }
-    foo()
+    foo()()
   </script>
 </body>
 
