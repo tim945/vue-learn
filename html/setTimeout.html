@@ -1,0 +1,54 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-04-01 15:35:23
+ * @LastEditors: tim
+ * @LastEditTime: 2020-04-01 16:13:32
+ * @Description: 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+   <style>
+     #root > span {
+       display: block;
+     }
+   </style>
+ </head>
+ <body>
+   <div id="root">
+
+   </div>
+
+   <script>
+     let __timer = '__timer'
+     console.time(__timer)
+     
+     let box = $("#root");
+     let html = ''
+     let line = 100000;
+     let times = line / 100
+
+     for(let i=1; i<=times; i++) {       
+      setTimeout(() => {
+        html = '' 
+        for(let j=(i-1)*100+1; j<=i*100; j++) {
+          html += '<span>'+ j +'</span>'
+          // console.log(j)
+        }
+        box.append(html)
+      }, 100)      
+     } 
+
+      // for(let i=1; i<=line; i++) {
+      //   html += '<span>'+ i +'</span>'
+      // }
+      // box.append(html)
+     
+     console.timeEnd(__timer)
+   </script>
+ </body>
+ </html>
