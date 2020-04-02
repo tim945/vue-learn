@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170715" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="head" class="com.midas.plugin.json.midea.pub.JTableData">
+<Parameters>
+<Parameter>
+<Attributes name="headData"/>
+<O>
+<![CDATA[[{\"amount\":\"6280\",\"tax\":\"628\",\"summary\":\"6908\",\"customerCode\":\"M90003770595\",\"customerName\":\"ビックカメラ　アリオ八尾店\",\"custZipCode\":\"5810803\",\"custAddress\":\"大阪府八尾市光町２－３　2階・３階\",\"sellerCode\":\"中8573\",\"custBillNum\":\"出荷截止日测试 受注 100天\",\"revCustomerAddress\":\"大阪府堺市堺区築港八幡町１－１７１ＭＦＬＰ堺2階　Ａ区画\",\"orderHeaderId\":94906,\"dateNow\":\"2019-11-06\"},{\"amount\":\"6280\",\"tax\":\"628\",\"summary\":\"6908\",\"customerCode\":\"M90003770595\",\"customerName\":\"ビックカメラ　アリオ八尾店\",\"custZipCode\":\"5810803\",\"custAddress\":\"大阪府八尾市光町２－３　2階・３階\",\"sellerCode\":\"中8573\",\"custBillNum\":\"出荷截止日测试 受注 100天\",\"revCustomerAddress\":\"大阪府堺市堺区築港八幡町１－１７１ＭＦＬＰ堺2階　Ａ区画\",\"orderHeaderId\":94898,\"dateNow\":\"2019-11-06\"}]A]]></O>
+</Parameter>
+</Parameters>
+<Attributes parseorName="类型1"/>
+</TableData>
+<TableData name="list" class="com.midas.plugin.json.midea.pub.JTableData">
+<Parameters>
+<Parameter>
+<Attributes name="listData"/>
+<O>
+<![CDATA[[{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"itemDesc\":\"itemDesc\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94906,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null},{\"orderHeaderId\":94898,\"itemName\":\"TA-FVX640(P)\",\"applyQty\":1,\"unitPrice\":6280,\"unitCount\":6280,\"remark\":null}]A]]></O>
+</Parameter>
+</Parameters>
+<Attributes parseorName="类型1"/>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1728000,952500,876300,1143000,723900,609600,1028700,723900,432000,1296000,1008000,1008000,1008000,1008000,288000,1728000,952500,876300,1143000,723900,609600,1028700,723900,432000,1296000,1008000,1008000,1008000,1008000,288000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[432000,2933700,2743200,3390900,5600700,3238500,3505200,4572000,4608000,2705100,7124700,432000,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" rs="8">
+<PrivilegeControl/>
+<CellPageAttr pageBeforeRow="true"/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="1" r="0" cs="10" s="0">
+<O>
+<![CDATA[納       品       書]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" cs="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="dateNow"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" cs="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custZipCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA['〒' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="2" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="customerCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA['得意#' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="2" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="3" cs="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custAddress"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="3" s="4">
+<PrivilegeControl/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="3" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="4" cs="3" s="1">
+<O>
+<![CDATA[〒1330-0021]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="5" cs="4" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="customerName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="5" cs="3" s="6">
+<O>
+<![CDATA[東京都千代田区外神田１－１－８　東芝万世橋ビル]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="6" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="6" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="6" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="6" cs="3" s="7">
+<O>
+<![CDATA[東芝エルイーソリューション株式会社]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="6" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="7" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="sellerCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA['担当者 ' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="7" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="8" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="9" cs="4" s="8">
+<O>
+<![CDATA[商     品    名     /     型    名  ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="9" s="8">
+<O>
+<![CDATA[数     量]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="9" s="8">
+<O>
+<![CDATA[単     価]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="9" s="8">
+<O>
+<![CDATA[金     額]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="9" cs="3" s="8">
+<O>
+<![CDATA[備          考]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="9" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="10" cs="4" s="9">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="itemName"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[orderHeaderId]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="head" columnName="orderHeaderId"/>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$ + IF(LEN(itemDesc)>0,  ' / ' + itemDesc, '')]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="10" s="10">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="applyQty"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="10" s="11">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="unitPrice"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="10" s="12">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="unitCount"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="10" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="remark"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="10" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="11" s="13">
+<O>
+<![CDATA[注文番号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custBillNum"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="6" r="11" s="8">
+<O>
+<![CDATA[商品代  計]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="11" s="11">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="amount"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="8" r="11" cs="2" rs="3" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="11" rs="3" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="11" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="12" s="16">
+<O>
+<![CDATA[納入先   ：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="12" cs="4" rs="2" s="17">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="revCustomerAddress"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="6" r="12" s="8">
+<O>
+<![CDATA[消費税等計]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="12" s="11">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="tax"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="12" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" s="18">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="13" s="8">
+<O>
+<![CDATA[合        計]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="13" s="11">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="summary"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="13" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="15" rs="8" s="1">
+<PrivilegeControl/>
+<CellPageAttr pageBeforeRow="true"/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="1" r="15" cs="10" s="0">
+<O>
+<![CDATA[受       領       書]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="15" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="16" cs="4" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="16" s="2">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="dateNow"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="17" cs="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custZipCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA['〒' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="17" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="customerCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA['得意#' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="18" cs="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custAddress"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" s="4">
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="9" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="19" cs="3" s="1">
+<O>
+<![CDATA[〒1330-0021]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="20" cs="4" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="customerName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="20" cs="3" s="6">
+<O>
+<![CDATA[東京都千代田区外神田１－１－８　東芝万世橋ビル]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="21" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="21" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="21" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="21" cs="3" s="7">
+<O>
+<![CDATA[東芝エルイーソリューション株式会社]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="21" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="22" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="sellerCode"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA['担当者 ' + $$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="22" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="23" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="24" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="24" cs="4" s="8">
+<O>
+<![CDATA[商     品    名     /     型    名  ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="24" s="8">
+<O>
+<![CDATA[数     量]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="24" cs="2" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="24" cs="3" s="8">
+<O>
+<![CDATA[備          考]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="24" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="25">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="25" cs="4" s="9">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="itemName"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[orderHeaderId]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="head" columnName="orderHeaderId"/>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$ + IF(LEN(itemDesc)>0,  ' / ' + itemDesc, '')]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" leftParentDefault="false" left="B3"/>
+</C>
+<C c="5" r="25" s="10">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="applyQty"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="25" cs="2" rs="4" s="20">
+<O>
+<![CDATA[受   領   印]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="8" r="25" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="list" columnName="remark"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="25" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="26">
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="1" r="26" s="13">
+<O>
+<![CDATA[注文番号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="26" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="custBillNum"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="8" r="26" cs="2" rs="3" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="26" rs="3" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="26" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="27">
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="1" r="27" s="16">
+<O>
+<![CDATA[納入先   ：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="27" cs="4" rs="2" s="17">
+<O t="DSColumn">
+<Attributes dsName="head" columnName="revCustomerAddress"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="11" r="27" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="28">
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="1" r="28" s="18">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="28" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="29" s="1">
+<PrivilegeControl/>
+<CellPageAttr pageAfterRow="true"/>
+<Expand/>
+</C>
+<C c="1" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="29" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings pageOrder="1" headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="720000" left="720000" bottom="720000" right="720000"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="160"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="1" imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="4">
+<IM>
+<![CDATA[!LF"(q2%pC7h#eD$31&+%7s)Y;?-[skPtS_,R=SS!!%Y(G..GO#$skh5u`*_m9MAY=&B\2Kn
+4u4Ku"0*$\K<*$\K<*$Y("h>SpWK9>`T>KqE?X/dPnt0b"Nu"q:ch_-g(n//T'0$O-dPJjI5
+Gqh,>q5Mj*B485=nJ+ptnm(h91HhYjuhnA3#kI^K]A%Q684L10hc[kI1:mIaT!4`?XPG%"`iB
+3u\(be+88kIJ,>mX!Y=.>tIC4$,6Cm]A2V<>HXL6q>#ZO\pRU^Gj);U\[m)#p[._P(SkX%*i<
+k"qu$ipR<T7d1UWg\^V>8)UQ%:R=H7S;e!EeprB9roL1)c[<UTCs``3"5X%YW+'s,a5ei&"O
+:4CWichFE<_e8<$2^Drjc]AtjLmt#b]AeoNOMBs^`P5KCgZ]AjG$WVZg84]Ako*q6^7Yjm.>FHqH
+^80Yl[R!)7O'a29\o>9H7=gMZHf'0Yos,g:EdU:]AN\fr7B-8[mq4,QsET.ce@p-`)5,oE<\+
+4XdVHNGj3XT")&R&_Z#LRrK;CY9`qn(b/Qh6OoWHN!k5@4*O&-lSWn1QDq]AiGXa("^)1XcW2
+hh\?Q]APB/lbQR):b;RAlN*.re3O(//JEj><8R[6.6oa+&[ZW?!"-3AF?SQnL,oUY6HT(W@Sm
+5@q=idd7?e-nWWFRQeZe<O@b',`oCoe:a67W3:3$"$b*>&OQoa<j)F3n]A"JA;LBp=JE_@V@M
+!*%t0A#4>Dc)*.Thd*rqZ5SMR>]A_5I$[3%BepS&@(C&78j(E<dKYc]A2&pc*3#X\e]A$NnV"lE
+SH2f'gV9&X,W&lD#6Liu3+&JrlYu)(.517N<p]ANC0t-!L.LIb$cZ3$(DJ!QcX/%j^L"0"=X-
+kfc2+Rr5LLg&o&E<VN<TM]AYWa[Qq8\o=r9M9D.L<qQH<^Y'AC5q%_-+]A!6R,(ZPVZ22ci7V`
+q+<e$W)#pG]ANcZ[5PLqBq^)j!0ssS%@aa%$7d\j8I\Zs2#q3<,\>b5[h<8M!#.&F<1+FN1Gj
+XQD.MKdRgWm)#U_rH8^FOr:Gi,`-$n#&Z9c/Wk)^k%RppVT&ctB-TYk.uCB>n@gaoA>H9Wt=
+RPI&2cs7;Q'`_fri$3;`Xq7&E-FhLf8!!fqQF`;J#11#;adWa-@U)sB:I6dT'`_fNaV`P5.l
+>>PCOpVh=d$l,>(2*U`*FGF1*i[DR0@7R;,BmMa6[b!J>R+#iIsk4S?_*q0Q"\(AM@7d%8\V
+G[/q%sQWaJ^%A5c154l17e76rbD/h;JJV:<B,=N4S$_Z]AGc&LbW(DWCp%A8"O!f,k;R'H+Dm
+]Ak2*&6ic[TPSSn13pF>_hC"S)aMT!PU/#3icis:p(<rB"jg\^\@t^.4&I*lMrlX^OLi@1HCA
+(HSOpfC4TA&E'm:-3rq+<9;cH2O#E8^3F-r=NXSS;i)7#onG#&j9[i+KDN1*QDTO[9jKia-o
+1ZsMkOcoQL0]Agqlb@i(WJBP+&5.A_"7'\_VjJ.c)"iqRd6-da8VSruE'S1V_nXdsb"D88nU^
+TEhW4\*=S$kuY;/T;I<<H(KeaftN5&iV&cbp;/am.(#`rN-g7[Dsu**U6o)K"G-2#q4:(]AX]A
+FMW,Q*V=ZK]Ab[>u0`9,QO7bIcFFuP=tZc"PXi#0I/2#q1mY?UNn:)d%"2uHI7%e0i.=K*&9h
+??fuq,h7V@Sgs+]AT4qhs!2mU2@lhK@<%uc\/Kn'mU$Iq%;:P%,U*?_d3)*I;DB'pLD`A#J3r
+R8buh5CoDM_m:fOI5J^r0cZ6Y@[`DddAo,,-LfFpFogBlOsC@Wq+!-D=/H'^RkKZ&p7hoGe$
+-ND/aB;FcP2IpP0EiK2>K\4Zb:3R:F-"E(?1m.mHN-d'P%nZLY9@J>i!S$5&9":-!Z#hFgHr
+gZs!3.-t[#o_%qi:JM*fD7%2QHqY,A2%GX9e?M,^,9j`aT/[o<Jguq7gmhMHcmN)6$`WKjIa
+\[-=o4mN)B_6b5pf5+4)`-6Ys1)*l[J)taW1?i_o-738D8q:hm+kQbV>V7rTBn[0dbGBZPX%
+XuC.kmlbJ[P(kF?HlFCckk?tLM&Qho.ba>CVUeHhO"hqg)%3X/U"IQcVb7*PLMUn5hsT-/C"
+.p^\.7&j69ilz8OZBBY!QNJ~
+]]></IM>
+</Background>
+<Border>
+<Top color="-16777216"/>
+</Border>
+</Style>
+<Style vertical_alignment="1" imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="64"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="88"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="5" paddingRight="5">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1" paddingLeft="5" paddingRight="5">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1" paddingLeft="5" paddingRight="5">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#,##0.00]]></Format>
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="5" paddingRight="5">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#,##0.00]]></Format>
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="5" paddingRight="0">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="0">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom color="-8355712"/>
+<Left color="-8355712"/>
+<Right color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="1" imageLayout="1" paddingLeft="5" paddingRight="0">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-8355712"/>
+<Bottom color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="1" imageLayout="1" paddingLeft="0">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left color="-8355712"/>
+<Right color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="1" imageLayout="1" spacingBefore="30">
+<FRFont name="Meiryo UI" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="1" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID TemplateID="8c1d025b-2cfa-4979-962f-4f8d02ad42f3"/>
+</WorkBook>
