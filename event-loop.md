@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-01 17:01:57
  * @LastEditors: tim
- * @LastEditTime: 2020-04-01 17:15:47
+ * @LastEditTime: 2020-04-02 09:51:00
  * @Description: JS事件循环  
  -->
 # event loop 事件循环
@@ -239,6 +239,51 @@ inner.click();
 ```
 
 示例2跟示例1基本一样，只有一点不同：示例2最后多了一行inner.click()，通过脚本来执行点击事件。这个就不分析了，可以去看Tasks, microtasks, queues and schedules，里面有详细的步骤动画，一步步分析。
+
+``` js
+console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
+
+Promise.resolve().then(function() {
+  console.log('promise1');
+  return Promise.resolve(111);
+}).then(function(val) {
+  console.log(val);
+  console.log('promise1-2');
+});
+Promise.resolve().then(function() {
+  setTimeout(function() {
+   console.log('promise2');}
+  ,0);
+}).then(function() {
+  console.log('promise2-2');
+});
+console.log('script end');
+
+// 输出结果
+// script start
+// VM6464:21 script end
+// VM6464:8 promise1
+// VM6464:19 promise2-2
+// VM6464:11 111
+// VM6464:12 promise1-2
+// undefined
+// VM6464:4 setTimeout
+// VM6464:16 promise2
+```
+
+``` js
+new Promise(function(resolve) { 
+    console.log('promise'); 
+    //这里没写resolve() 不会执行then，一直处于 pending 
+    // resolve();
+}).then(function() { 
+    console.log('then'); 
+})
+```
 
 参考链接：
 [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) 
