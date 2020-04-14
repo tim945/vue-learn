@@ -1,0 +1,36 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-04-14 17:13:19
+ * @LastEditors: tim
+ * @LastEditTime: 2020-04-14 17:34:06
+ * @Description: https://liyang0207.github.io/2018/06/03/VUE双向数据绑定原理及简单实现/
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue原理简单实现</title>
+  <script src="js/dependency.js"></script>
+  <script src="js/observer.js"></script>
+  <script src="js/watcher.js"></script>
+  <script src="js/complier.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div id="app">
+    <span v-text="message"></span>
+    <input type="text" v-model="message" />
+    {{message}}
+  </div>
+  
+  <script>
+    let vm = new MVVM({
+      el: '#app',
+      data: {
+        message: 'hello Vue!'
+      }
+    })
+  </script>
+</body>
+</html>
