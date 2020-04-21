@@ -11,4 +11,9 @@
     border-bottom-width: 0;
   }
 }
+
+/* 固定table-view列，横向滚动条不可滚动问题 */
+.el-table--scrollable-x .el-table__body-wrapper{
+  z-index: 1;
+}
 ```
