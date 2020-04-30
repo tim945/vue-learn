@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-03-03 16:21:00
  * @LastEditors: tim
- * @LastEditTime: 2020-03-03 16:25:02
+ * @LastEditTime: 2020-04-30 17:49:26
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -36,7 +36,54 @@
       console.log('promise2');  // 7
     });
     console.log('script end');  // 5
+
+/*
+script start
+async1 start
+async2
+promise1
+script end
+async1 end
+promise2
+setTimeout
+*/
   </script>
+
+根据上面的原则来，基本没啥问题了。但是肯定有个疑惑的地方。为什么 “async1 end” 跑到了倒数第三个。
+
+那是因为 async 函数中，遇到 await 会跳出当前函数，并让出线程，再将await后面的代码放到 微任务（microtask）队列中。
+
+ 
+
+整个执行过程：
+
+1、同步执行, 输出“script start”。
+
+2、遇到setTimeout，将里面代码放到宏任务队列。
+
+3、继续往下，输出 “async1 start”，然后执行 async2函数，输出 “async2”。
+
+4、async2执行完毕，将await async2 后面的代码加入到 微任务队列；
+
+5、继续执行，new Promise, 同步输出“promise1”。
+
+6、遇到 promise.then，加入到微任务队列,
+
+7、然后输出 "script end"。
+
+8、当前宏任务执行完毕，查看微任务队列，按照先进先出原则。
+
+9、依次输出“async1 end”、“promise2”
+
+10、执行下一个宏任务，里面只有一个setTimeout，所以最后输出 “setTimeout”
+
+ 
+
+同步执行的：[script start] [async1 start] [async2] [promise1] [script end]
+
+微任务队列：[async1 end] [ promise2 ]
+
+宏任务队列：[setTimeout]
 </body>
 
 </html>
