@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-03-03 16:21:00
  * @LastEditors: tim
- * @LastEditTime: 2020-04-30 17:49:26
+ * @LastEditTime: 2020-04-30 18:01:52
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -15,6 +15,25 @@
 </head>
 
 <body>
+JS 分为同步任务和异步任务
+
+同步任务在主线程上执行
+
+异步任务放在主线程之外的一个任务队列
+
+主线程执行完毕后，读取任务队列的内容
+
+ 
+
+宏任务(macro)task：当前主线程上执行的就是一个宏任务。例： script 的代码、setTimeout、setInterval、postMessage等。
+
+微任务：microtask。例：Promise.then、await后面的代码。
+
+在执行当前宏任务时（同步执行时），遇到 setTimeout 会把它放到宏任务队列。遇到Promise.then会放到微任务队列。
+
+当前 宏任务 执行完毕后，会先查看微任务队列，如果有任务，优先执行，否则执行下一个宏任务。所以 promise.then 会先于 setTimeout执行。
+
+
   <script>
     async function async1() {
       console.log('async1 start');  // 2
