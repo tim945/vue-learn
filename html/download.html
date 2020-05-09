@@ -1,0 +1,67 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-05-09 15:02:01
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-09 16:15:21
+ * @Description: 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>数据流下载方法</title>
+
+ </head>
+ <body>
+   <input type="file" name="files" id="files">
+   
+  <button onclick="download()">download</button>
+
+   <script>
+     let reader = new FileReader();     
+
+     function download() {
+      
+      // 获取文件对象
+      const fileObj = document.querySelector('#files').files[0];
+
+      // 获取文件后缀名
+      const fileNames = fileObj.name.split('.');
+      const fileType = fileNames[fileNames.length-1];
+      // 获取文件名称，后续下载重命名
+      const fileName = new Date().getTime() + '-' +fileObj.name;
+
+      reader.readAsDataURL(fileObj);
+      
+      reader.onload = function(e) {
+        let fileBlob = e.target.result
+        debugger
+
+        let parts = fileBlob.split(';base64,');
+        let contentType = parts[0].split(':')[1];
+        let raw = window.atob(parts[1]);
+        let rawLength = raw.length;
+        let uInt8Array = new Uint8Array(rawLength);
+        for(let i = 0; i < rawLength; ++i) {
+          uInt8Array[i] = raw.charCodeAt(i);
+        }
+        const blob = new Blob([uInt8Array], {type: contentType});
+
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(blob, fileName);
+        } else {
+          let a = document.createElement('a')
+          a.download = fileName
+          a.href = window.URL.createObjectURL(blob)
+          // document.body.appendChild(a)  // 此处可以不用append，a.click 后 a须清除
+          a.click()
+          // document.body.removeChild(a)
+          a = null
+          console.log(a)
+        }
+      }
+    }
+   </script>
+ </body>
+ </html>
