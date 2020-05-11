@@ -2,8 +2,12 @@
  * @Author: tim
  * @Date: 2020-04-14 17:13:19
  * @LastEditors: tim
- * @LastEditTime: 2020-04-14 17:34:06
+ * @LastEditTime: 2020-05-11 17:54:17
  * @Description: https://liyang0207.github.io/2018/06/03/VUE双向数据绑定原理及简单实现/
+ * https://www.jianshu.com/p/f194619f6f26
+ * https://www.jianshu.com/p/2df6dcddb0d7
+ * https://www.cnblogs.com/zhangym118/p/8717999.html
+ * https://www.jianshu.com/p/1032ecd62b3a
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,14 +25,22 @@
   <div id="app">
     <span v-text="message"></span>
     <input type="text" v-model="message" />
-    {{message}}
+    {{message}} 123123  
+    <p></p>
+    title:<input type="text" v-model="title" /> {{title}} </br>   
+    <span v-text="group.name">ddd</span>
+    <input type="text" v-model="group.name" />
   </div>
   
   <script>
     let vm = new MVVM({
       el: '#app',
       data: {
-        message: 'hello Vue!'
+        title: 'MVVM',
+        message: 'hello Vue!',
+        group: {
+          name: 'abc'
+        }
       }
     })
   </script>

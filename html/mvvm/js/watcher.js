@@ -2,15 +2,15 @@
  * @Author: tim
  * @Date: 2020-04-14 17:08:25
  * @LastEditors: tim
- * @LastEditTime: 2020-04-14 17:31:35
- * @Description: 
+ * @LastEditTime: 2020-05-11 17:28:13
+ * @Description: 数据更新的订阅者，订阅的数据改变时执行相应的回调函数（更新视图或表达式的值）。
  */
 class Watcher {
   constructor(vm, expr, callback) {
     this.vm = vm;
     this.expr = expr;           // data中的key值
     this.callback = callback;   // 值变化的时候执行什么回调
-    this.value = this.get();    // 实例化watcher的时候将自己添加到Dependency
+    this.value = this.get();    // 实例化watcher的时候将自己添加到Dependency   <----
   }
   get() {
     Dependency.target = this;   // 缓存自己,就是这个Watcher实例

@@ -2,8 +2,8 @@
  * @Author: tim
  * @Date: 2020-04-14 17:08:43
  * @LastEditors: tim
- * @LastEditTime: 2020-04-14 17:53:05
- * @Description: 
+ * @LastEditTime: 2020-05-11 18:24:10
+ * @Description: 解析器
  */
 class Complier {
   constructor(el, vm) {
@@ -11,15 +11,15 @@ class Complier {
     this.el = document.querySelector(el);
     if (this.el) {
       // 使用fragment储存元素，这时候#app内就没有节点了，因为已经被frag删除完了
-      let fragment = this.nodeToFragment(this.el);    
-      debugger
+      let fragment = this.nodeToFragment(this.el);   
       this.complie(fragment);                         // 编译fragment
       this.el.appendChild(fragment);                  // 将fragment放回#app内
     }
   }
   complie(node) {
+    debugger
     // 使用Array.from将类数组node.childNodes转换为真正的数组
-    let nodeList = Array.from(node.childNodes);    
+    let nodeList = Array.from(node.childNodes);    // 些处只做一层子节点处理
     nodeList.forEach((item) => {
       //根据nodeType判读节点类型，执行不同的编译
       switch (item.nodeType) {
@@ -36,7 +36,7 @@ class Complier {
     attrs.forEach((attr) => {
       if (attr.name.indexOf('v-') > -1) {
         let type = attr.name.split('-')[1];    // 取到'model',即指令的类型
-        complierUnits[type] && complierUnits[type](node, this.vm, attr.value);
+        complierUnits[type] && complierUnits[type](node, this.vm, attr.value);  // attr.value:v-model的表达式
       }
     })
   }
@@ -51,7 +51,7 @@ class Complier {
     let frag = document.createDocumentFragment();
     let child;
     while (child = node.firstChild) {
-      // fragment调用appendChild方法会删除node.firstChild节点
+      // fragment调用appendChild方法会删除node.firstChild节点，页面上的节点会被删除
       frag.appendChild(child);
     }
     return frag;
@@ -85,7 +85,7 @@ const complierUnits = {
       node.value = value;
     },
     textUpdater(node, value) {
-      node.textContent = value;
+      node.textContent = value; // 此处直接设置值value，没有考虑所有的场景, 如{{message}}aaa场景
     }
   }
 };
