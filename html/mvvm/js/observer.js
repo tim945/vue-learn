@@ -2,25 +2,28 @@
  * @Author: tim
  * @Date: 2020-04-14 17:08:06
  * @LastEditors: tim
- * @LastEditTime: 2020-05-11 18:02:09
+ * @LastEditTime: 2020-05-12 15:47:15
  * @Description: 数据的观察者，让数据对象的读写操作都处于自己的监管之下。当初始化实例的时候，会递归遍历data，用Object.defineProperty来拦截数据（包含数组里的每个数据）
  */
 class Observer {
   constructor(data) {
     this.observer(data);
-  }
+  } 
   observer(data) {
     if (!data || typeof data !== 'object') {
       return false;
     } else {
-      Object.keys(data).forEach((key) => {
+      Object.keys(data).forEach((key) => {        
         // 劫持data对象中的每一条数据
         this.defineReactive(data, key, data[key]);
       })
     }
   }
   defineReactive(obj, key, value) {
+    let self = this;
     let dep = new Dependency(); // 每个属性的所有订阅者
+    // 递归遍历所有子属性
+    let childObj = this.observer(value);
     Object.defineProperty(obj, key, {
       enumerable: true,
       configurable: false,
@@ -34,6 +37,8 @@ class Observer {
         // 值未变化return回去
         if (newValue === value) { return false; }
         value = newValue; // 更新为最新的值
+        // 新的值是object的话，进行监听
+        childObj = self.observer(newValue);
         // 数据变化，通知dep里所有的watcher
         dep.notify();
       }
