@@ -2,11 +2,12 @@
  * @Author: tim
  * @Date: 2020-04-01 17:01:57
  * @LastEditors: tim
- * @LastEditTime: 2020-04-02 09:51:00
+ * @LastEditTime: 2020-05-12 18:02:16
  * @Description: JS事件循环  
  -->
 # event loop 事件循环
 > https://liyang0207.github.io/2018/07/08/JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/#more 
+> https://cloud.tencent.com/developer/article/1610071
 
 作为前端，提起JS，都知道它是一门单线程的语言，只能从上到下顺序执行JS任务，而任务又分为同步任务和异步任务，常见的如Ajax请求、setTimeout、setInterval、点击事件的回调函数等等都是异步任务。当我们的JS逻辑写的越来越复杂，可能会发现一些逻辑的执行顺序跟我们预想的不一样，或者压根就没执行，这时候深入理解一下JS中事件循环的逻辑就显得势在必行了，更不用提现今前端框架如此流行，弄清了事件循环机制，才能对框架的生命周期，数据更新策略等有更深入的理解。
 
