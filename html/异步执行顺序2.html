@@ -1,0 +1,99 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-05-13 10:43:28
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-13 11:02:06
+ * @Description: https://cloud.tencent.com/developer/article/1610071
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>异步执行顺序</title>
+  </head>
+  <body>
+    <p>
+      <h1>Event Loop</h1>
+      Event Loop 很好的调度了任务的运行，宏任务和微任务也知道了，现在我们就来看看它的调度运行机制。</br>
+      JavaScript 的代码执行时，主线程会从上到下一步步的执行代码，同步任务会被依次加入执行栈中先执行，异步任务会在拿到结果的时候将注册的回调函数放入任务队列，当执行栈中的没有任务在执行的时候，引擎会从任务队列中读取任务压入执行栈(Call Stack)中处理执行。</br>
+    </p>
+
+    宏任务：
+      script(整体的代码)
+      setTimeout
+      setInterval
+      I/O 操作
+      UI 渲染 (对这个笔者持保留意见)
+
+    微任务：
+      Promise.then
+      MutationObserver
+
+    事件运行顺序
+    1、执行同步任务，同步任务不需要做特殊处理，直接执行(下面的步骤中遇到同步任务都是一样处理) --- 第一轮从 script开始
+    2、从宏任务队列中取出队头任务执行
+    3、如果产生了宏任务，将宏任务放入宏任务队列，下次轮循的时候执行
+    4、如果产生了微任务，将微任务放入微任务队列
+    5、执行完当前宏任务之后，取出微任务队列中的所有任务依次执行
+    6、如果微任务执行过程中产生了新的微任务，则继续执行微任务，直到微任务的队列为空
+    7、轮循，循环以上 2 - 6
+    
+    总的来说就是：同步任务/宏任务 -> 执行产生的所有微任务(包括微任务产生的微任务) -> 同步任务/宏任务 -> 执行产生的所有微任务(包括微任务产生的微任务) -> 循环......
+
+    注意：微任务队列
+
+
+    <script>
+      console.log("script start"); // 1
+      
+      setTimeout(function () {
+        console.log("setTimeout");  // 9
+      }, 0);
+
+      new Promise((resolve, reject) => {
+        console.log("promise1");  // 2
+        resolve();
+      })
+        // then11
+        .then(() => {
+          console.log("then11");  // 4
+          new Promise((resolve, reject) => {
+            console.log("promise2");  // 5
+            resolve();
+          })
+            .then(() => {
+              console.log("then21");  // 6
+            })
+            .then(() => {
+              console.log("then22");  // 8
+            });
+        })
+        // then12
+        .then(() => {
+          console.log("then12");  // 7
+        });
+        
+      console.log("script end");  // 3
+    </script>
+
+1、首先遇到 console.log()，输出 script start
+2、遇到 setTimeout 产生宏任务，注册到宏任务队列[setTimeout]，下一轮 Event Loop 的时候在执行
+3、然后遇到 new Promise 构造声明(同步)，log 输出 promise1，然后 resolve
+4、resolve 匹配到 promise1 的第一个 then，把这个 then 注册到微任务队列[then11]中，继续当前整体脚本的执行
+5、遇到最后的一个 log，输出 script end，当前执行栈清空
+6、从微任务队列中取出队头任务'then11' 进行执行，其中有一个 log，输出 then11
+7、往下遇到 new Promise 构造声明(同步)，log 输出 promise2，然后 resolve
+8、resolve 匹配到 promise2 的第一个 then，把这个 then 注册到微任务队列[then2-1]，当前 then11 可执行部分结束，然后产生了 promise1 的第二个 then，把这个 then 注册到微任务队列[then2-1, then12]
+9、拿出微任务队头任务'then2-1' 执行，log 输出 then2-1，触发 promise2 的第二个 then，注册到微任务队列[then12, then2-2]
+10、拿出微任务队头任务'then12'，log 输出 then12
+11、拿出微任务队头任务'then2-2'，log 输出 then2-2
+12、微任务队列执行完毕，别忘了宏任务队列中的 setTimeout，log 输出 setTimeout
+
+经过以上一番缜(xia)密(gao)分析，希望没有绕晕你，最后的输出结果就是：
+
+script start -> promise1 -> script end -> then11 -> promise2 -> then2-1 -> then12 -> then2-2 -> setTimeout
+
+
+  </body>
+</html>

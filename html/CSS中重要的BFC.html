@@ -1,0 +1,48 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-05-13 09:49:46
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-13 09:57:59
+ * @Description: https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context
+ * https://segmentfault.com/a/1190000013023485
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS中重要的BFC</title>
+</head>
+<body>
+  BFC(Block Formatting Context)块级格式化上下文，是用于布局块级盒子的一块渲染区域。</br>
+
+  属于同一个BFC的两个相邻块级子元素的上下margin会发生重叠，(设置writing-mode:tb-rl时，水平margin会发生重叠)。所以当两个相邻块级子元素分属于不同的BFC时可以阻止margin重叠。
+这里给任一个相邻块级盒子的外面包一个div，通过改变此div的属性使两个原盒子分属于两个不同的BFC，以此来阻止margin重叠。</br>
+
+BFC触发方式</br>
+根元素，即HTML标签</br>
+浮动元素：float值为left、right</br>
+overflow值不为 visible，为 auto、scroll、hidden</br>
+display值为 inline-block、table-cell、table-caption、table、inline-table、flex、inline-flex、grid、inline-grid</br>
+定位元素：position值为 absolute、fixed</br>
+注意：display:table也可以生成BFC的原因在于Table会默认生成一个匿名的table-cell，是这个匿名的table-cell生成了BFC。</br>
+
+
+<div class="box" id="box">
+  <div class="show">
+    <h2 class="show-tit">BFC演示</h2>
+    <div class="show-body">
+      <!-- 添加结构单元 -->
+      <div style="background-color: rgba(0,255,0,0.5);width: 260px;height:50px;margin-bottom:10px;">块级盒子一的下外边距为10px</div>
+      <div id="sb">
+        <div style="background-color: rgba(255,0,0,0.5);width: 260px;height:50px;margin-top:10px;">块级盒子二的上外边距为10px</div>
+      </div>
+      <!-- 添加结构单元结束 -->
+    </div>
+
+  </div>
+  
+</div>
+</body>
+</html>
