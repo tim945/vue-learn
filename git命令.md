@@ -1,4 +1,25 @@
-本地代码首次推送到远程仓库
+<!--
+ * @Author: tim
+ * @Date: 2020-03-02 10:58:40
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-18 17:49:05
+ * @Description: 
+--> 
+# 本地代码首次推送到远程仓库
+
+``` sh
+#…or create a new repository on the command line
+echo "# node" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/tim945/node.git
+git push -u origin master
+                
+#…or push an existing repository from the command line
+git remote add origin https://github.com/tim945/node.git
+git push -u origin master
+```
 
 ``` sh
 git init   // 初始化版本库

@@ -35,25 +35,36 @@
   </div>
   <script>
   /* 防抖 */
-  function dou(fn, wait) {
-    var time = null;
+  function dou(fn, wait, immediate=false) {
+    var timer = null;
     return function () {
-        clearTimeout(time)
+      console.log(timer)  // 只有首次执行时是 null
+      if (! timer) {
+        if (immediate) {  // 立刻执行一次
+          fn.apply(this, arguments)
+        }
+        timer = setTimeout(() => {
+          // console.log(this)//div
+          fn.apply(this, arguments)//确保dou函数的this（上下文还是div）
+        }, wait);
+      } else {
+        clearTimeout(timer)
         // time = setTimeout(function () {
         //  console.log(this)//window 
         //  fn.apply(this, arguments)//这样的话 this为window和直接 fn()调用是一样的效果，因为他们的this都是window
         // }, wait);
-        time = setTimeout(() => {
+        timer = setTimeout(() => {
             // console.log(this)//div
             fn.apply(this, arguments)//确保dou函数的this（上下文还是div）
         }, wait);
+      }        
     }
   }
   function demo() {
       console.log('防抖啦')
   }
   // 用句柄事件绑定调用dou事件，所以this为div节点对象
-  document.querySelector('#dou').addEventListener('scroll', dou(demo, 1000));
+  document.querySelector('#dou').addEventListener('scroll', dou(demo, 1000, true));
 
 
   </script>
@@ -69,11 +80,11 @@
   </p>
   <script>
   /* 节流 */
-  function throttle(func, wait) {
+  function throttle(func, wait) {  
     var previous = 0;
     return function () {
         var now = +new Date();
-        if (now - previous > wait) {
+        if (now - previous > wait) {  // 首次点击事件永执行， 后面在小于wait内不执行
             func.apply(this, arguments);
             previous = now;
         }
