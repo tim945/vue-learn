@@ -1,0 +1,84 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-05-22 14:10:16
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-22 17:28:50
+ * @Description: 交叉观察器
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IntersectionObserver</title>
+</head>
+<style>
+.container{
+    margin: 40px auto;
+    text-align: center;
+}
+img {
+    height: 200px;
+    width: 300px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+</style>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        const containerDom = document.querySelector('.container');
+        const intersectionObserver = new IntersectionObserver(callback);
+        addImgs();
+
+        setTimeout(() => {
+            // addObserver();
+        }, 3000);
+        /*
+        *  添加img
+        */
+        function addImgs() {
+            // 创建一个文档片段
+            let liDoms = document.createDocumentFragment();
+            for(let i = 0; i < 20000; i++) {
+                let liDom = document.createElement('li');
+                let img = document.createElement('img');
+                liDom.setAttribute('data-src', './imgs/1.jpeg');
+                liDom.appendChild(img);
+                liDoms.appendChild(liDom);
+                intersectionObserver.observe(liDom);    // ---->  此处直接绑定
+            }
+            containerDom.appendChild(liDoms);
+        }
+
+        /*
+        *  添加监控
+        */
+        function callback(entries) {
+            (entries || []).forEach(entry => {
+                if(!entry.isIntersecting) {
+                    return;
+                }
+                // console.log(entry.target)
+                let target = entry.target;
+                let srcUrl = target.getAttribute('data-src');
+                let imgDom = target.querySelector('img');
+                imgDom.setAttribute('src', srcUrl);
+                imgDom.style.opacity = 1;
+                this.unobserve(target); // 停止观察 -----> 避免下次继续触发
+            });
+        }
+        function addObserver() {
+            let lis = document.querySelectorAll('li');
+            lis.forEach(li => {
+                intersectionObserver.observe(li);
+            })
+        }
+        
+    </script>
+</body>
+
+</html>

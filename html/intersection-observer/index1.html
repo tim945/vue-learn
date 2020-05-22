@@ -1,0 +1,90 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-05-22 14:10:16
+ * @LastEditors: tim
+ * @LastEditTime: 2020-05-22 16:31:57
+ * @Description: 交叉观察器
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>intersection observer</title>
+    <style>
+    .container {
+        height: 500px;
+        background-color: blueviolet;
+        overflow-y: scroll;
+    }
+    .footer {
+        height: 100px;
+        background-color: aqua;
+    }
+    .header {
+        height: 800px;
+        background-color: blanchedalmond;
+    }
+    .infos {
+        position: fixed; 
+        top:0; 
+        left: 0;
+        z-index: 9;
+        width: 100%;
+        background: #000;
+        color: #fff;
+        text-align: center;
+    }
+    .inner-box {
+        height: 200px;    
+        padding: 20px;
+        border: 1px solid red; height: 700px;  
+    }
+    .box {
+        width: 50px;
+        height: 50px;
+        background: green;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="infos">none</div>
+
+    <div class="header">
+
+    </div>
+    <div class="container">  
+        <div class="inner-box">
+            <div style="height: 600px;"></div>
+            <div class="box"></div>
+            <div style="height: 200px;"></div>
+        </div>      
+    </div>
+    <div class="footer">
+
+    </div>
+    <script>
+        const infos = document.querySelector('.infos');
+        const dom = document.querySelector('.box');
+        const intersectionObserver = new IntersectionObserver(entries => {
+            const curEntry = entries && entries.length>0 && entries[0];
+
+            if(!curEntry.isIntersecting) {
+                infos.innerHTML = 'none';
+                return;
+            }  
+            infos.innerHTML = curEntry.intersectionRatio;
+            console.log('aa:', curEntry.intersectionRatio); 
+        },
+        {
+            // root:document.querySelector('.container'),
+            // rootMargin:'200px 0px 0px 0px',
+            threshold: [0, 0.25, 0.5, 0.75, 1]
+        });
+        
+        intersectionObserver.observe(dom);
+    </script>
+</body>
+</html>
