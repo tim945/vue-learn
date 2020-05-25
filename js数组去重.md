@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-09 17:02:38
  * @LastEditors: tim
- * @LastEditTime: 2020-05-09 17:50:05
+ * @LastEditTime: 2020-05-25 15:48:28
  * @Description: 
  -->
 
@@ -50,6 +50,14 @@ let max = arr.reduce((prev, cur) => {
 })
 
 Math.max.apply(null, arr)
-```
 
+// 数组扁平化
+var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10]
+
+Array.from(new Set(arr.flat(Infinity))).sort((a,b)=>{ return a-b})
+
+[...new Set(arr.flat(Infinity))].sort((a,b)=>{ return a-b})
+
+arr.toString().split(",").sort((a,b)=>{ return a-b}).map(Number)
+```
 
