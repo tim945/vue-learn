@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-03-02 10:58:40
  * @LastEditors: tim
- * @LastEditTime: 2020-05-18 17:49:05
+ * @LastEditTime: 2020-05-25 11:41:24
  * @Description: 
 --> 
 # 本地代码首次推送到远程仓库
@@ -114,4 +114,25 @@ git push --mirror http://github.com/newproject.git
 4.克隆远程仓库到本地。可查看历史版本
 
 git clone http://github.com/newproject.git
+```
+
+# Git 之 恢复修改的文件
+
+## 只是修改了文件，没有任何 git 操作，直接一个命令就可回退
+``` sh
+git checkout -- aaa.txt # aaa.txt为文件名
+```
+
+## 修改了文件，并提交到暂存区（即编辑之后，git add 但没有 git commit -m ....）
+``` sh
+$ git log --oneline    # 可以省略
+$ git reset HEAD    # 回退到当前版本
+$ git checkout -- aaa.txt    # aaa.txt为文件名
+```
+
+## 修改了文件，并提交到仓库区（即编辑之后，git add 和 git commit -m ....）
+``` sh
+$ git log --oneline    # 可以省略
+$ git reset HEAD^    # 回退到上一个版本
+$ git checkout -- aaa.txt    # aaa.txt为文件名
 ```
