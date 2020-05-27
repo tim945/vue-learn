@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-22 14:10:16
  * @LastEditors: tim
- * @LastEditTime: 2020-05-22 17:28:50
+ * @LastEditTime: 2020-05-27 09:25:28
  * @Description: 交叉观察器
 --> 
 <!DOCTYPE html>
@@ -27,15 +27,61 @@ img {
 </style>
 <body>
     <div class="container">
-
+        <ul>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+            <li data-src="imgs/1.jpeg">
+                <img />
+            </li>
+        </ul>
     </div>
     <script>
         const containerDom = document.querySelector('.container');
         const intersectionObserver = new IntersectionObserver(callback);
-        addImgs();
+        // addImgs();
 
         setTimeout(() => {
-            // addObserver();
+            addObserver();  // 绑定监听
         }, 3000);
         /*
         *  添加img
