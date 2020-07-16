@@ -1,0 +1,58 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-07-15 09:59:07
+ * @LastEditors: tim
+ * @LastEditTime: 2020-07-16 15:46:05
+ * @Description: 
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="viewer.css">
+  <style>
+    html, body {
+      margin:0; padding: 0; height: 100%;
+    }
+    .viewer-wrapper {
+      position: relative;
+      background: #333;
+      height: 100%;
+    }
+    .viewer-control {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      z-index: 9999;
+    }
+    .viewer-canvas > img {
+      position: absolute;
+      margin-top:0; 
+      margin-bottom: 0;
+      max-width: none !important; 
+      transition: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer-control">
+    <button id="normalBtn">标准</button>
+    <button id="fillBtn">填充</button>
+    <button id="centerBtn">居中</button>
+    <button id="zoomBigBtn">放大</button>
+    <button id="zoomSmallBtn">缩小</button>
+    <button id="rotateBtn">旋转</button>
+  </div>
+  <div class="viewer-wrapper">
+    <div class="viewer-container viewer-backdrop" touch-action="none" style="z-index: 2017; width: 1116px; height: 511px;">
+      <div class="viewer-canvas">
+        <img id="zoomPic" src="/static/img/p4.jpg" class="viewer-move viewer-transition" style="height: 423.9px; margin-left: 218.88px; margin-top: 43.55px; width: 678.24px; max-width: none !important; transform: rotate(0deg);" />
+      </div>
+    </div>  
+</div>
+
+<script src="pic.js"></script>
+</body>
+</html>
