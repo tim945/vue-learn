@@ -2,12 +2,13 @@
  * @Author: tim
  * @Date: 2020-07-15 14:04:19
  * @LastEditors: tim
- * @LastEditTime: 2020-07-16 15:46:14
+ * @LastEditTime: 2020-07-28 10:05:37
  * @Description: 
  */ 
 ;(function() { 
   let $viewerContainer = document.querySelector(".viewer-container")
   let $zoomPic = document.querySelector("#zoomPic")
+  let $oriImg = null
   let $normalBtn = document.querySelector("#normalBtn")
   let $fillBtn = document.querySelector("#fillBtn")
   let $centerBtn = document.querySelector("#centerBtn")
@@ -15,7 +16,12 @@
   let $zoomSmallBtn = document.querySelector("#zoomSmallBtn")
   let $rotateButton = document.querySelector("#rotateBtn")
 
+  let imgs = ['p1.png', 'p2.png']
+
   let imageData = {
+    naturalWidth: 1728,
+    naturalHeight: 1101,
+    diffScale: 0,
     width:678.24,
     height:423.9,
     left:218.88,
@@ -27,11 +33,64 @@
   // 重置标准图信息
   let normalImageData = {...imageData}
   let mode = 'normal'   // 标准模式
+  let container = { width:1116, height:511 }  // 图片容器的宽高
+
+  // 加载图片
+  const loadImg = function() {
+    let loading = true;
+    let imgKey = Math.round(Math.random())
+    let img = new Image();
+
+    img.onload = () => {
+      loading = false;
+      $zoomPic.src = img.src;
+      // 图片原始宽高
+      imageData.naturalWidth = img.naturalWidth
+      imageData.naturalHeight = img.naturalHeight
+      
+      debugger
+      let { width, height } = container
+      let imgWidth, imgHeight
+
+      // 计算显示图片大小 
+      if (img.naturalWidth > width) { // 大于容器宽度
+        imgWidth = width
+        imgHeight = img.naturalHeight * (imgWidth/img.naturalWidth)
+        if (imgHeight > height) {
+          imgHeight = height
+          imgWidth = img.naturalWidth * (imgHeight/img.naturalHeight)
+        }
+      } else if(img.naturalHeight > height) { // 大于容器高度
+        imgHeight = height
+        imgWidth = img.naturalWidth * (imgHeight/img.naturalHeight)       
+      } else {
+        imgWidth = img.naturalWidth
+        imgHeight = img.naturalHeight
+      }
+
+      // 计算图片属性
+      let updateObj = {
+        width: imgWidth,
+        height: imgHeight,
+        left: (width - imgWidth)/2,
+        top: (height - imgHeight)/2, 
+        diffScale: img.naturalWidth/imgWidth
+      }
+      Object.assign(imageData, updateObj)
+      normalImageData = {...imageData}     
+      setStyle()
+    }
+    img.onerror = () => {
+      loading = false;
+    }
+    img.src = imgs[imgKey];  // 调试代码    
+  }
 
   const setMode = function(modelVal) {
     mode = modelVal
   }
 
+  // 设置样式
   const setStyle = function() {
     let styles = [], transform = [];
 
@@ -69,6 +128,7 @@
     $zoomPic.style = styles.join(" ")
   }
 
+  // 缩放
   const zoom = function(flag) {
     let max = 3, min = 1, step = 0.5;
 
@@ -79,7 +139,7 @@
     }
     
     if (flag === 'big') {
-      if (imageData.scale >= max) return
+      if (imageData.scale >= max + imageData.diffScale) return
       imageData.scale += step
     } else {
       if (imageData.scale <= min) return      
@@ -96,7 +156,7 @@
     setMode('normal')
     imageData = {...normalImageData}
     setStyle()
-  }
+  }  
   // 填充
   $fillBtn.onclick = function() {
     setMode('fill')
@@ -109,8 +169,21 @@
     }
     setStyle()
   }
+  // 居中
+  $centerBtn.onclick = function() {
+    setMode('center')
+    imageData = {
+      ...normalImageData, 
+      width: 'auto!important;',
+      height: 'auto;',
+      left: (container.width - imageData.naturalWidth)/2,
+      top: (container.height - imageData.naturalHeight)/2
+    }
+    setStyle()
+  }
   // 旋转
   $rotateButton.onclick = function() { 
+    // 旋转时只改变旋转的角度，其他属性保持不变
     imageData.rotate += 90
     setStyle()
   }
@@ -139,7 +212,7 @@
     
     this.onmousemove = function (e) {  
       // 计算图片位置        
-      // 相对位置left(top) = 当前鼠标坐标X(Y) - 鼠标相对图片的位置disX(disY) 
+      // 相对位置left(top) = 当前鼠标坐标X(Y) - disX(disY) 
       let left = e.clientX - disX;
       let top = e.clientY - disY;
 
@@ -162,4 +235,6 @@
     return false;
   };
 
+  // 加载图片
+  loadImg();
 })()
