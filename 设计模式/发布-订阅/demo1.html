@@ -1,0 +1,31 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-07-28 14:22:53
+ * @LastEditors: tim
+ * @LastEditTime: 2020-07-28 14:26:43
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="global.js"></script>
+  </head>
+  <body>
+    <script>
+      (function () {
+        Event.listen("size", function (size) {
+          console.log("尺码为:" + size); // 打印出尺码为42
+        });
+        Event.listen("color", function (color) {
+          console.log("颜色为:" + color);
+        });
+
+        Event.trigger("size", 42);
+        Event.trigger("color", 'pink');
+      })();
+    </script>
+  </body>
+</html>

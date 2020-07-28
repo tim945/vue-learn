@@ -1,0 +1,54 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-07-28 14:22:53
+ * @LastEditors: tim
+ * @LastEditTime: 2020-07-28 14:46:22
+ * @Description: 理解模块间通信
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="global.js"></script>
+  </head>
+  <body>
+    <button id="count">点将我</button>
+    <div id="showcount"></div>
+
+    <script>
+      (function () {
+        var count = 0;
+        var button = document.getElementById("count");
+        button.onclick = function () {
+          Event.trigger("add", ++count);
+        };
+
+        var div = document.getElementById("showcount");
+        Event.listen("add", function (count) {
+          div.innerHTML = count
+        });
+      })();
+
+      // 传统的ajax请求吧，比如我们传统的ajax请求，请求成功后需要做如下事情
+      // $.ajax("http://127.0.0.1/index.php",function(data){
+      //     rendedData(data);  // 渲染数据
+      //     doAnimate(data);  // 实现动画
+      // });
+
+      // 使用发布-订阅模式
+      // $.ajax("http://127.0.0.1/index.php",function(data){
+      //     Obj.trigger("success", data);  // 发布请求成功后的消息
+      // });
+      // 下面我们来订阅此消息，比如我现在订阅渲染数据这个消息；
+      // Obj.listen("success",function(data){
+      //   renderData(data);
+      // });
+      // 订阅动画这个消息
+      // Obj.listen("success",function(data){
+      //   doAnimate(data);
+      // });
+    </script>
+  </body>
+</html>
