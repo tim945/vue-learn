@@ -1,0 +1,41 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-07-29 13:42:42
+ * @LastEditors: tim
+ * @LastEditTime: 2020-07-29 13:47:12
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .column {
+        max-width: 1024px;
+      }
+      .figure {
+        padding-top: 30.85%; /* 316 / 1024 */
+        background: url("./pic.jpg") no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      实现的基本原理：将使用到保持元素的宽高比的技巧，为元素添加垂直方向的padding-top的值，使用百分比的形式，这个值是相对于元素的宽而定的，比如我上面的一张图片的宽度是1024px，高度为316px；那么现在的</br>
+      padding-top = （高度 / 宽度 ）＊ 100% ＝ （316 ／ 1024）＊ 100% ＝ 30.85%;</br>
+      但是仅仅对图片高度和宽度缩放的放还不够，我门还必须添加</br>
+      background-size:cover,</br>
+      使这个属性让背景铺满元素的，但是IE8及以下不支持该属性，因此为了兼容IE下面的浏览器，我门还需要再加一个属性</br>
+      background-position: center ; 同时我门也要保证</br>
+      图片的宽度最大等于父容器的宽度；</br>
+    </p>
+    <h3>使用padding-top实现响应性图片(图片的宽度是1024px，高度是316px)</h3>
+    <div class="column">
+      <div class="figure"></div>
+    </div>
+  </body>
+</html>
