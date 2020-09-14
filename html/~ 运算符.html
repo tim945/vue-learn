@@ -1,0 +1,25 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-09-14 14:41:51
+ * @LastEditors: tim
+ * @LastEditTime: 2020-09-14 15:03:39
+ * @Description: 字位操作“非”, ~ 返回 2 的补码
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 在 -(x+1) 中唯一能够得到 0（或者严格说是 -0）的 x 值是 -1。也就是说如果 x 为 -1 时， 
+    // ~ 和一些数字值在一起会返回假值 0，其他情况则返回真值
+    ~-1  // -(-1+1) ==> 0
+    ~42; // -(42+1) ==> -43
+    
+  </script>
+  
+</body>
+</html>
