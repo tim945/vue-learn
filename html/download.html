@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-09 15:02:01
  * @LastEditors: tim
- * @LastEditTime: 2020-05-09 16:15:21
+ * @LastEditTime: 2020-09-15 14:17:31
  * @Description: 
  -->
  <!DOCTYPE html>
@@ -14,17 +14,24 @@
 
  </head>
  <body>
-   <input type="file" name="files" id="files">
+   <form action="" name="upfileForm">
+     <input type="file" name="files" id="files">
+
+     <button type="button" onclick="download()">download</button>
+   </form>
    
-  <button onclick="download()">download</button>
 
    <script>
      let reader = new FileReader();     
 
-     function download() {
-      
+    function download() {      
       // 获取文件对象
       const fileObj = document.querySelector('#files').files[0];
+
+      if (! fileObj) {
+        alert('请先选择文件');
+        return false;
+      }
 
       // 获取文件后缀名
       const fileNames = fileObj.name.split('.');
@@ -60,7 +67,36 @@
           a = null
           console.log(a)
         }
+
+        // 清空选择文件
+        document.upfileForm.reset();  
       }
+    }
+
+    // 通过AJAX请求返回blob数据
+    function downloadFile(record) {
+      axios({
+        method: 'get',
+        url: url,
+        params: { },
+        headers: headers, //设置header信息
+        responseType: 'blob'
+      }).then(res => {
+        const blob = res.data
+        // for IE
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(blob,'test.xlsx');
+        } else {
+          const a = document.createElement('a')
+          a.download = 'test.xlsx'
+          a.href = window.URL.createObjectURL(new Blob([res.data]))
+          document.body.appendChild(a)
+          a.click()
+          document.body.removeChild(a)
+        }
+      }).catch(err => {
+        
+      })
     }
    </script>
  </body>
