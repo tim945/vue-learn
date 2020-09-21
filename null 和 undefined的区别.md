@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-06-24 18:04:13
  * @LastEditors: tim
- * @LastEditTime: 2020-09-04 16:45:28
+ * @LastEditTime: 2020-09-21 16:56:49
  * @Description: 
 -->
 1. 首先看一个判断题：null和undefined 是否相等
@@ -45,7 +45,7 @@ null === undefined; // false
 
 null > 0;  // false 1
 null >= 0; // true  2
-null == 0; // false 3
+null == 0; // false 3   在相等性检查 == 中「不会进行任何的类型转换」
 null < 1;  // true  4
 
 undefined > 0;  // false  1
