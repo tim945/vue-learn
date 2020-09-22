@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-06-24 11:00:12
  * @LastEditors: tim
- * @LastEditTime: 2020-06-24 11:09:41
+ * @LastEditTime: 2020-09-22 10:12:41
  * @Description: https://mp.weixin.qq.com/s?__biz=MzI2MjcxNTQ0Nw==&mid=2247485051&idx=1&sn=38c356d1c54215319fd5755b6e804123&chksm=ea47a723dd302e35081cbdc70cc64ec258140289d7ea4752f119dec685b60c205356de0f5554&scene=126&sessionid=1592964862&key=b0fc3423c6081e5dfba87440fd567922c19e9f21b362514803059446ab8a3e5c3226f85f84f98116af87ea5ef97d790de9526156e293b6a959a22651ba10a6a0df39da2ea36f11f963d60f3082e36242&ascene=1&uin=MTU0MDczMTk2MQ%3D%3D&devicetype=Windows+10+x64&version=62090523&lang=zh_CN&exportkey=ATm94Do%2Fjj%2BtK6BRhfrLpac%3D&pass_ticket=NZiRg72rxwhbM%2FutQ0mG4L9Af4nCeIYnEWgEhTMJPRRQ9h5GdNAZGSeRVhoOpiZm
 --> 
 <!DOCTYPE html>
@@ -19,7 +19,9 @@
         let worker = new Worker("dw-ping-pong.js");
         worker.onmessage = (e) =>
           console.log(`Main: Received message - ${e.data}`);
-        worker.postMessage("PING");
+        setTimeout(() => {
+          worker.postMessage("PING");
+        }, 3000)  
       } else {
         console.log("呜呜呜，不支持 Web Worker");
       }
