@@ -1,0 +1,50 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-09-22 13:40:51
+ * @LastEditors: tim
+ * @LastEditTime: 2020-09-22 14:48:27
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .body-overflow {
+      overflow: hidden;
+    }
+    .drag-box {
+      position: absolute;
+      z-index: 2020;
+      width: 350px;
+      border:1px solid #e5e5e5;
+      background: #ecd5d5;
+      left:50%;
+      top:50%;
+      transform: translate(-50%, -50%);
+      line-height: 150%;
+    }
+    .drag-title {
+      font-size: 20px;
+      padding: 5px;
+      cursor: move;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .drage-body {
+      padding:5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="drag-box">
+      <div class="drag-title">drag title</div>
+      <div class="drage-body">drag body:just do it!</div>
+    </div>
+  </div>
+
+  <script src="drag.js"></script>
+</body>
+</html>
