@@ -1,0 +1,88 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-09-23 13:59:55
+ * @LastEditors: tim
+ * @LastEditTime: 2020-09-23 17:52:48
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .scrollbar {
+      overflow: hidden;
+      position: relative;
+    }
+    .scrollbar__wrap {
+      height: 100%;
+      max-height: 500px;
+      line-height: 1.2;
+      word-break: break-word;
+      overflow: scroll;
+    }
+    .scrollbar__bar {
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      z-index: 1;
+      border-radius: 4px;
+      opacity: 0;
+      -webkit-transition: opacity 120ms ease-out;
+      transition: opacity 120ms ease-out;
+    }
+    .scrollbar__bar.is-horizontal {
+      height: 6px;
+      left: 2px;
+    }
+    .scrollbar__bar.is-vertical {
+      width: 6px;
+      top: 2px;
+    }
+    .scrollbar:hover > .scrollbar__bar {
+      opacity: 1;
+      -webkit-transition: opacity 340ms ease-out;
+      transition: opacity 340ms ease-out; 
+    }
+    .scrollbar__thumb {
+      position: relative;
+      display: block;
+      width: 0;
+      height: 0;
+      cursor: pointer;
+      border-radius: inherit;
+      background-color: rgba(102, 102, 102, 0.3);
+      -webkit-transition: .3s background-color;
+      transition: .3s background-color;
+    }
+    .scrollbar__thumb:hover {
+      background-color: rgba(144, 147, 153, 0.7);
+    }
+    .scrollbar__bar.is-vertical > div {
+      width: 100%;
+    }
+    .scrollbar__bar.is-horizontal > div {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scrollbar">
+    <div class="scrollbar__wrap">
+      <div class="scrollbar__view" style="height: 1000px;">
+        &lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;&lt;p&gt;if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}var o=Object(this);var len=o.length&gt;&gt;&gt;0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}var thisArg=arguments[1];var k=0;while(k&lt;len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue}k++}return undefined}})}&lt;/p&gt;
+      </div>
+    </div>
+    <div class="scrollbar__bar is-horizontal"><div class="scrollbar__thumb"></div></div>
+    <div class="scrollbar__bar is-vertical"><div class="scrollbar__thumb"></div></div>
+  </div>
+
+  <script src="scrollbar.js"></script>
+</body>
+</html>
