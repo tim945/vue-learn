@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-23 15:08:18
  * @LastEditors: tim
- * @LastEditTime: 2020-09-24 17:06:49
+ * @LastEditTime: 2020-09-24 17:24:29
  * @Description: We can do better, we should be better. 我们能做得更好，也应该做得更好。
  */
 
@@ -11,6 +11,9 @@
 // 2、内容的原始滚动事件：onscroll
 // 3、模拟滚动槽点击事件
 // 4、模拟滚动条拖动事件
+
+// IE版本
+console.log(document.documentMode)
 
 /* istanbul ignore next */
 const on = function(element, event, handler) {
