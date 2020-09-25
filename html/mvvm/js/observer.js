@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-14 17:08:06
  * @LastEditors: tim
- * @LastEditTime: 2020-05-12 15:47:15
+ * @LastEditTime: 2020-09-25 16:49:44
  * @Description: 数据的观察者，让数据对象的读写操作都处于自己的监管之下。当初始化实例的时候，会递归遍历data，用Object.defineProperty来拦截数据（包含数组里的每个数据）
  */
 class Observer {
@@ -29,6 +29,7 @@ class Observer {
       configurable: false,
       get() {
         if (Dependency.target) {  // JS的浏览器单线程特性，保证这个全局变量在同一时间内，只会有同一个监听器使用
+          debugger
           dep.addSub(Dependency.target);    // 添加订阅者watcher,应该是整个实例Watcher
         }
         return value;

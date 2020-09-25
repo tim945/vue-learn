@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-14 17:08:43
  * @LastEditors: tim
- * @LastEditTime: 2020-05-11 18:24:10
+ * @LastEditTime: 2020-09-25 17:08:59
  * @Description: 解析器
  */
 class Complier {
@@ -58,7 +58,7 @@ class Complier {
   }
 }
 
-// 编译器工具箱
+// 编译器工具箱，只对页面上绑定的数据表达式进行 Watcher
 const complierUnits = {
   model (node, vm, expr) {
     let updateFn = this.updater.modelUpdater;
