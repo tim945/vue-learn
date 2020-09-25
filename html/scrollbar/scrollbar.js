@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-23 15:08:18
  * @LastEditors: tim
- * @LastEditTime: 2020-09-24 17:24:29
+ * @LastEditTime: 2020-09-25 14:10:43
  * @Description: We can do better, we should be better. 我们能做得更好，也应该做得更好。
  */
 
@@ -11,6 +11,10 @@
 // 2、内容的原始滚动事件：onscroll
 // 3、模拟滚动槽点击事件
 // 4、模拟滚动条拖动事件
+
+// event.stopImmediatePropagation是阻止同一个元素的相同的事件，
+// event.stopPropagation是阻止事件在DOM中继续传播，
+// 它拥有event.stopPropagation()的阻止向上冒泡的行为，同时可以阻止同一个元素里相同类型的事件。
 
 // IE版本
 console.log(document.documentMode)

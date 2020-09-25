@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-07-28 14:04:10
  * @LastEditors: tim
- * @LastEditTime: 2020-09-09 09:29:05
+ * @LastEditTime: 2020-09-25 10:09:34
  * @Description: 全局-发布订阅模式对象的封装代码 https://www.cnblogs.com/tugenhua0707/p/4687947.html
  * 发布订阅（Publish/Subscriber）模式使用了一个 主题/事件通道对象，管理  主题和事件
  * Publish：发布者，发布通知 （通知 主题/事件通道对象  这个主题变化了，执行对应的事件)
@@ -41,7 +41,8 @@ var Event = (function () {
       return false;
     }
     if (!fn) {
-      fns && (fns.length = 0);
+      // 直接清空列表事件
+      fns && (fns.length = 0);  // js数组设置 length = 0可以清空数组
     } else {
       for (var i = fns.length - 1; i >= 0; i--) {
         var _fn = fns[i];
