@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-25 17:24:05
  * @LastEditors: tim
- * @LastEditTime: 2020-09-25 18:00:33
+ * @LastEditTime: 2020-09-27 14:09:28
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -11,13 +11,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="js/dependency.js"></script>
   <script src="js/observer.js"></script>
+  <script src="js/watcher.js"></script>
+  <script src="js/complier.js"></script>
   <script src="js/main.js"></script>
 </head>
 <body>
   <div id="app">
     <input type="text" v-model="message" />      
-    <p>输入了：{{message}} </p>
+    <span>输入了：</span>
+    {{message}} 
     <!-- <p><span v-text="message"></span></p> -->
   </div>
 
