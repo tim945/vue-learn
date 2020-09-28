@@ -1,0 +1,192 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-09-28 13:56:54
+ * @LastEditors: tim
+ * @LastEditTime: 2020-09-28 16:58:18
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin:0;
+    }
+    .list {
+      width: 580px;
+      list-style: none;
+      margin:0;
+    }
+    .list::after {
+      display: block;
+      content:' ';
+      clear: both;
+    }
+    .list li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      width: 120px;
+      height: 150px;
+      background: #e1e1e1;
+      margin:10px 10px 0 0;
+    }
+    .list li img{
+      max-width: 100%; 
+      transition: opacity 3s ;
+    }
+    .list li img[data-src] {
+      opacity: 0;
+    }
+    .list li .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list">
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+  </ul>
+
+  <script>
+    (function(){
+      let winHeight = document.documentElement.clientHeight;  // 窗口的可视高度
+
+      const loadPic = function() {
+        let list = document.querySelectorAll(".list>li>img[data-src]");
+        let scrollTop = window.scrollY;
+
+        for(let i=0, len=list.length; i<len; i++) {
+          console.log(i);
+          let img = list[i];
+          let imgTop = img.getBoundingClientRect().top;
+          if (imgTop < winHeight) {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src')
+            img.classList.add('show')
+          } else {
+            break;
+          }
+        }
+              
+      }
+
+      const dou = function(fn, wait) {
+        let timer = null;
+
+        return function() {
+          timer && clearTimeout(timer)
+          timer = setTimeout(() => {
+            fn.apply(this, arguments)
+          }, wait)
+        }
+      }
+
+      // window.addEventListener('scroll', dou(loadPic, 500))
+      window.onscroll = dou(function() {
+        loadPic();
+      }, 500)
+      loadPic();
+    })()
+  </script>
+</body>
+</html>

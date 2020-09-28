@@ -1,0 +1,64 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-09-27 17:43:53
+ * @LastEditors: tim
+ * @LastEditTime: 2020-09-28 10:23:01
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    <button type="button" onclick="showPic()">SHOW</button>  <span id="loadEl"></span>
+  </p>
+  <div class="p1">
+    <img src="../static/img/loading.gif" />
+  </div>
+  <div class="p2">
+    <img src="" />
+  </div>
+  <script>
+    let imgs = ['mvvm.png', 'mvvm2.png', 'mvvm3.png', 'mvvm4.png']
+    let imgsLoaded = []
+    let count = 0; // 计算器，计算加载了多少图片
+    let length = imgs.length
+    let imgId = document.querySelector('.p2 > img')
+    let loadEl = document.querySelector('#loadEl')
+
+    imgs.forEach(item => {
+      let img = new Image()
+      img.src = '../static/img/' + item
+      img.onload = function () {
+          count++;
+          if (count === length) {
+              loadEl.innerHTML = '加载完成';
+          } else {
+              loadEl.innerHTML = '正在加载第'+ count +'图片';
+          }
+      }
+      imgsLoaded.push(img)
+    })
+    console.log(imgsLoaded)
+
+    const showPic = function() {
+      let index = Math.floor(Math.random() * 4)
+      let picId = imgsLoaded[index] 
+      
+      if (picId.complete) {
+        console.log('complete')
+        imgId.src = picId.src
+      } else {
+        picId.onload = function() {
+          console.log('onload')
+          imgId.src = picId.src
+        }
+      }  
+    }    
+  </script>
+</body>
+</html>

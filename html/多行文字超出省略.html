@@ -2,8 +2,8 @@
  * @Author: tim
  * @Date: 2020-08-25 10:13:06
  * @LastEditors: tim
- * @LastEditTime: 2020-08-25 10:20:00
- * @Description: 
+ * @LastEditTime: 2020-09-28 13:50:43
+ * @Description: https://www.jianshu.com/p/3bce7924a466
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
   <title>Document</title>
   <style>
     .content {
-      width: 100px;
+      width: 300px;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -21,11 +21,55 @@
       -webkit-box-orient: vertical;
       border: 1px solid #efefef;
     }
+
+    /* float 特性实现多行文本截断 */
+    .wrap {
+      position: relative;
+      height: 40px;
+      line-height: 20px;
+      overflow: hidden;
+    }
+    .wrap .text {
+      float: right;
+      margin-left: -5px;
+      width: 100%;
+      word-break:break-all;
+    }
+    .wrap::before {
+      float: left;
+      width: 5px;
+      content: '';
+      height: 40px;
+    }
+    .wrap::after {
+      float: right;
+      content: "...";
+      /* 行高度 */
+      height: 20px;
+      line-height: 20px;
+    /* 为三个省略号的宽度 */
+      width: 3em;
+    /* 使盒子不占位置 */
+      margin-left: -3em;
+    /* 移动省略号位置 */
+      position: relative;
+      left: 100%;
+      top: -20px;
+      padding-right: 5px;
+      background: linear-gradient(to right, transparent, #fff 55%);
+      text-align: right;
+    }   
   </style>
 </head>
 <body>
   <div class="content">
-    最初的爱情最初的爱情最初的爱情最初的爱情最初的爱情最初的爱情最初的爱情最初的爱情最初的爱情
+    最初的梦想最初的梦想最初的梦想最初的梦想最初的梦想最初的梦想最初的梦想最初的梦想最初的梦想
+  </div>
+
+  <div class="wrap">
+    <div class="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore sit vel itaque delectus atquequos magnam assumenda quod architecto perspiciatis animi.
+    </div>
   </div>
 </body>
 </html>
