@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-15 11:18:18
  * @LastEditors: tim
- * @LastEditTime: 2020-09-15 11:31:26
+ * @LastEditTime: 2020-09-29 14:35:49
  * @Description: 
 -->
 # this 解析
@@ -31,6 +31,7 @@ baz(); // <-- baz 的调用位置
 ```
 
 ## this 绑定 
+> 如果 this 的调用位置同时应用了多种绑定规则，它是有优先级的：new 绑定 -> 显示绑定 -> 隐式绑定 -> 默认绑定。
 
 ``` js
 // obj.cool() 方法调用， this 指向obj
