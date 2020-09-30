@@ -2,8 +2,8 @@
  * @Author: tim
  * @Date: 2020-07-02 10:32:07
  * @LastEditors: tim
- * @LastEditTime: 2020-07-02 14:22:09
- * @Description: 
+ * @LastEditTime: 2020-09-30 10:18:35
+ * @Description: http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html 浮点数的二进制表示
 --> 
 # 浮点数运算精度丢失
 > 浮点数运算精度丢失问题并不是js独有的！
