@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-09 15:02:01
  * @LastEditors: tim
- * @LastEditTime: 2020-10-09 13:47:20
+ * @LastEditTime: 2020-10-09 14:00:26
  * @Description: 
  -->
  <!DOCTYPE html>
@@ -47,7 +47,7 @@
         let fileBlob = e.target.result
         debugger
 
-        pic.src = fileBlob;
+        pic.src = fileBlob
 
         let parts = fileBlob.split(';base64,');
         let contentType = parts[0].split(':')[1];
@@ -78,7 +78,7 @@
     }
 
     // 通过AJAX请求返回blob数据
-    function downloadFile(record) {
+    /* function downloadFile(record) {
       axios({
         method: 'get',
         url: url,
@@ -101,7 +101,7 @@
       }).catch(err => {
         
       })
-    }
+    } */
    </script>
  </body>
  </html>
