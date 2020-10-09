@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-28 13:56:54
  * @LastEditors: tim
- * @LastEditTime: 2020-09-28 16:58:18
+ * @LastEditTime: 2020-10-09 10:41:34
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@
     body {
       margin:0;
     }
-    .list {
+    .pics {
       width: 580px;
       list-style: none;
       margin:0;
     }
-    .list::after {
+    .pics::after {
       display: block;
       content:' ';
       clear: both;
     }
-    .list li {
+    .pics li {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,20 +35,125 @@
       background: #e1e1e1;
       margin:10px 10px 0 0;
     }
-    .list li img{
+    .pics li img{
       max-width: 100%; 
       transition: opacity 3s ;
     }
-    .list li img[data-src] {
+    .pics li img[data-src] {
       opacity: 0;
     }
-    .list li .show {
+    .pics li .show {
       opacity: 1;
+    }
+
+    /* 内滚动 */
+    .list2 {
+      height: 340px;
+      overflow-y: scroll;
     }
   </style>
 </head>
 <body>
-  <ul class="list">
+  <ul class="list pics">
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm2.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm3.png">
+    </li>
+    <li>
+      <img data-src="../static/img/mvvm4.png">
+    </li>
+  </ul>
+
+  <ul class="list2 pics">
     <li>
       <img data-src="../static/img/mvvm.png">
     </li>
@@ -152,7 +257,7 @@
       let winHeight = document.documentElement.clientHeight;  // 窗口的可视高度
 
       const loadPic = function() {
-        let list = document.querySelectorAll(".list>li>img[data-src]");
+        let list = document.querySelectorAll(".pics>li>img[data-src]");
         let scrollTop = window.scrollY;
 
         for(let i=0, len=list.length; i<len; i++) {
@@ -184,7 +289,12 @@
       // window.addEventListener('scroll', dou(loadPic, 500))
       window.onscroll = dou(function() {
         loadPic();
-      }, 500)
+      }, 500);
+      document.querySelector(".list2").onscroll = dou(function() {
+        loadPic();
+      }, 500);
+
+
       loadPic();
     })()
   </script>
