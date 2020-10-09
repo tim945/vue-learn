@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-28 13:56:54
  * @LastEditors: tim
- * @LastEditTime: 2020-10-09 10:41:34
+ * @LastEditTime: 2020-10-09 13:32:05
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -36,6 +36,7 @@
       margin:10px 10px 0 0;
     }
     .pics li img{
+      width: 100%;
       max-width: 100%; 
       transition: opacity 3s ;
     }
@@ -280,7 +281,7 @@
 
         return function() {
           timer && clearTimeout(timer)
-          timer = setTimeout(() => {
+          timer = setTimeout(function() {
             fn.apply(this, arguments)
           }, wait)
         }
