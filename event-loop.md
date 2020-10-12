@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-01 17:01:57
  * @LastEditors: tim
- * @LastEditTime: 2020-10-12 09:33:55
+ * @LastEditTime: 2020-10-12 17:48:32
  * @Description: JS事件循环  
  -->
 # event loop 事件循环
@@ -286,6 +286,52 @@ new Promise(function(resolve) {
 }).then(function() { 
     console.log('then'); 
 })
+```
+
+``` js
+// rejected: [object Promise]
+// fulfilled: resolve
+// rejected: reject
+var p1 = new Promise(function(resolve, reject){
+  resolve(Promise.resolve('resolve'));
+});
+
+var p2 = new Promise(function(resolve, reject){
+  resolve(Promise.reject('reject'));
+});
+
+var p3 = new Promise(function(resolve, reject){
+  reject(Promise.resolve('resolve'));
+});
+
+p1.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p2.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p3.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+/* Promise回调函数中的第一个参数resolve，会对Promise执行"拆箱"动作。即当resolve的参数是一个Promise对象时，resolve会"拆箱"获取这个Promise对象的状态和值，但这个过程是异步的。p1"拆箱"后，获取到Promise对象的状态是resolved，因此fulfilled回调被执行；p2"拆箱"后，获取到Promise对象的状态是rejected，因此rejected回调被执行。但Promise回调函数中的第二个参数reject不具备”拆箱“的能力，reject的参数会直接传递给then方法中的rejected回调。因此，即使p3 reject接收了一个resolved状态的Promise，then方法中被调用的依然是rejected，并且参数就是reject接收到的Promise对象。 */
 ```
 
 参考链接：
