@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-25 17:24:05
  * @LastEditors: tim
- * @LastEditTime: 2020-09-27 14:09:28
+ * @LastEditTime: 2020-10-12 13:34:47
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -33,5 +33,48 @@
       }
     })
   </script>
+
+<p>
+  手写一个简单双向绑定<br/>
+  <input type="text" id="model"><br/>
+  <div id="modelText"></div>
+</p>
+<script>
+  var model = document.querySelector("#model");
+  var modelText = document.querySelector("#modelText");
+  var defaultName = "defaultName";
+  var userInfo = {}
+  model.value = defaultName;
+  Object.defineProperty(userInfo, "name", {
+    get: function () {
+      return defaultName;
+    },
+    set: function (value) {
+      defaultName = value;
+      model.value = value;
+      console.log("-----value");
+      console.log(value);
+      modelText.textContent = value;
+    }
+  })
+
+  userInfo.name = "new value";
+  var isEnd = true;
+
+  model.addEventListener("keyup", function () {
+    if (isEnd) {
+      userInfo.name = this.value;
+    }
+  }, false)
+  //加入监听中文输入事件
+  model.addEventListener("compositionstart", function () {
+    console.log("开始输入中文");
+    isEnd = false;
+  })
+  model.addEventListener("compositionend", function () {
+    isEnd = true;
+    console.log("结束输入中文");
+  })
+</script>
 </body>
 </html>
