@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-10-23 09:52:09
  * @LastEditors: tim
- * @LastEditTime: 2020-10-23 17:17:09
+ * @LastEditTime: 2020-10-26 16:36:57
  * @Description: 
 -->
 # 未来的函数：生成器和promise
@@ -51,6 +51,69 @@ function* NinjaGenerator(){
     yield "Yoshi";
 }
 ```
+
+## next方法
+> 调用Generator函数返回一个遍历器对象(迭代器)，代表Generator函数的内部指针。
+> 以后每次调用遍历器对象的next()方法，就会返回一个有着value和done属性的对象，**value表示yield后的表达式的值**，done属性是一个布尔值，表示函数是否遍历结束。
+
+[next()方法的运行逻辑]
+
+* 遇到yield语句就暂停执行后面的语句，并将紧跟在yield后的表达式的值作为返回的对象的value属性值
+
+* 下一次调用next()方法时，继续执行，直到遇到下一跳yield语句。
+
+* 如果没有遇到新的yield语句，就一直运行到函数结束，直到return语句为止，并将return语句后面的表达式值作为返回对象的value属性值。
+
+* 如果该函数没有return语句，则返回对象value属性值为undefined。
+
+``` js
+function* generator() {
+  console.log('a'); 
+  yield 'hello';
+  yield 'world';
+  return 'ending';
+}
+var a = generator();
+console.log( a.next() );
+console.log( a.next() );
+console.log( a.next() );
+console.log( a.next() );
+
+// 分析
+// 第一次调用next()方法,Generator函数开始执行，直到遇到第一个yield语句为止。所以结果为: a {value:hello,done: false}
+
+// 第二次调用，继续执行，遇到第二个yield语句，所以结果为：{value: world, done:false}
+
+// 第三次调用，继续执行，遇到return语句，结果返回：{value: ending, done: true}
+
+// 第四次调用，此时Generator函数执行完毕，next()返回的对象的value值为undefined，done属性为true。
+```
+
+## next()方法的参数
+> yield语句没有返回值或者说返回值为undefined，但如果next()方法带有参数，则这个参数会被当做**上一条yield语句的返回值**。
+
+``` js
+function* foo(x) {
+    var y = 2 * (yield(x + 1));
+    var z = yield(y/3);
+    return (x + y + z);
+}
+var a = foo(5);
+// 无参数
+// console.log(a.next());   // {value: 6, done: false}
+// console.log(a.next());   // {value: NaN, done: false}
+// console.log(a.next());   // {value: NaN, done: true}
+// 有参数
+console.log(a.next());    // {value: 6, done: false}
+console.log(a.next(12));  // {value: 8, done: false}
+console.log(a.next(13));  // {value: 42, done: true}
+```
+
+没有提供参数时，第二次调用next()，导致y的值为2*undefined（即NaN），第三次调用z为undefined，返回对象的value属性等于 5+NaN+undefined 为NaN。
+
+提供参数时，第二次调用next()，导致y的值24，第三次调用，使得z的值为13，所有返回对象的value值为5+24+13=42
+
+【注意】：*由于next()的参数表示上一条yield语句的返回值，所有第一次使用next方法时，传递的参数是无效的。*
 
 ## 使用生成器
 
@@ -150,6 +213,44 @@ ninjaIterator.next(); // Yoshi skulk
 ![执行过程3](./imgs/生成器执行上下文3.png)
 
 
+## 练习代码
+* a1~a4的值是什么?
+``` js
+function *EvenGenerator(){
+  let num = 2;
+  while(true){
+    yield num;
+    num = num + 2;
+  }
+} 
 
+let generator = EvenGenerator();
+let a1 = generator.next().value;  // 2
+let a2 = generator.next().value;  // 4
+let a3 = EvenGenerator().next().value;  // 2
+let a4 = generator.next().value //6
+```
 
+* ninjas 数组中的内容是什么？ （小提示： 思考一下 for-of 循环如何使用while循环来实现）
+``` js
+function* NinjaGenerator(){
+  yield "Yoshi";
+  return "Hattori";
+  yield "Hanzo";
+} 
+var ninjas = [];for(let ninja of NinjaGenerator()){
+  ninjas.push(ninja);
+}
+ninjas; // ["Yoshi"]
+```
 
+* 变量a1 和变量 a2的值是什么
+``` js
+function* Gen(val) {
+  val = yield val * 2;
+  yield val;
+} 
+let generator = Gen(2);
+let a1 = generator.next(3).value; // 4
+let a2 = generator.next(5).value; // 5
+```
