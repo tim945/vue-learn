@@ -1,0 +1,68 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-10-26 09:38:02
+ * @LastEditors: tim
+ * @LastEditTime: 2020-10-26 10:13:43
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getJSON(url) {
+      return new Promise(function(resolve, reject) {
+        var request = new XMLHttpRequest();
+
+        request.open('GET', url, true);
+        request.send();
+        // request.onreadystatechange = function() {
+        //   try {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //       console.log(this.responseText);
+        //       resolve(this.responseText)
+        //     } 
+        //   } catch (e) {
+        //     reject(e)
+        //   }
+        // }
+
+        request.onload = function() {
+          try {
+            if (this.status == 200) {
+              console.log(this.responseText);
+              resolve(this.responseText)
+            } else {
+              reject(this.status + " " + this.statusText); 
+            }
+          } catch (e) {
+            reject(e)
+          }
+        };
+
+        // 如果和服务器端通信过程中发生了错误， 则对该promise执行reject方法
+        request.onerror = function() {
+          debugger
+          reject(this.status + " " + this.statusText); 
+        };
+      })      
+    }
+    
+    getJSON('test.json').then(function(data){
+      console.log('dothen')
+    }).catch(function(e) {
+      console.log(e)
+    })
+
+    getJSON('test2.json').then(function(data){
+      console.log('dothen')
+    }).catch(function(e) {
+      console.log(e)
+    })
+  </script>
+</body>
+</html>
