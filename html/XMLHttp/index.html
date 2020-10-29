@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-10-26 09:38:02
  * @LastEditors: tim
- * @LastEditTime: 2020-10-26 10:13:43
+ * @LastEditTime: 2020-10-29 14:00:23
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="loading">loading……</div>
+  
   <script>
     function getJSON(url) {
       return new Promise(function(resolve, reject) {
@@ -53,6 +55,9 @@
     }
     
     getJSON('test.json').then(function(data){
+      setTimeout(function(){
+        document.querySelector(".loading").innerHTML = 'load completed'
+      }, 3000);
       console.log('dothen')
     }).catch(function(e) {
       console.log(e)
