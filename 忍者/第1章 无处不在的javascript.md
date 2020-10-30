@@ -2,10 +2,11 @@
  * @Author: tim
  * @Date: 2020-10-19 16:56:14
  * @LastEditors: tim
- * @LastEditTime: 2020-10-20 14:20:17
+ * @LastEditTime: 2020-10-30 16:56:30
  * @Description: 
 -->
 # 无处不在的javascript
+> JavaScript 有七种内置类型： null、undefined、boolean、number、string、object 和 symbol
 > 对象、 原型、 函数和闭包的紧密结合组成了JavaScript
 > 深入理解JavaScript的核心机制和浏览器所提供的架构。
 
