@@ -1,0 +1,93 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-11-16 14:39:27
+ * @LastEditors: tim
+ * @LastEditTime: 2020-11-16 14:43:56
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position:sticky 示例</title>
+
+  <style type="text/css">
+    .container {
+      background: #eee;
+      width: 600px;
+      height: 1000px;
+      margin: 0 auto;
+    }
+
+    .sticky-box {
+      position: -webkit-sticky;
+      position: sticky;
+      height: 60px;
+      margin-bottom: 30px;
+      background: #ff7300;
+      top: 0px;
+    }
+
+    div {
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      line-height: 60px;
+    }
+
+    .container2 {
+      background: #eee;
+      width: 600px;
+      height: 1000px;
+      margin: 0 auto;
+    }
+
+    nav {
+      position: -webkit-sticky;
+      position: sticky;
+      top:0;
+  }
+
+    nav {
+      height: 50px;
+      background: #999;
+      color: #fff;
+      font-size: 30px;
+      line-height: 50px;
+    }
+
+    .content {
+      margin-top: 30px;
+      background: #ddd;
+    }
+
+    p {
+      line-height: 40px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sticky-box">内容1</div>
+    <div class="sticky-box">内容2</div>
+    <div class="sticky-box">内容3</div>
+    <div class="sticky-box">内容4</div>
+  </div>
+
+  <div class="container2">
+    <nav>我是导航栏</nav>
+    <div class="content">
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+        <p>我是内容栏</p>
+    </div>
+  </div>
+</body>
+</html>
