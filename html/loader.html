@@ -1,0 +1,32 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-11-20 16:39:44
+ * @LastEditors: tim
+ * @LastEditTime: 2020-11-20 16:44:15
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes loader {
+    to { background-position: -443px 0; }
+    }
+    .loader {
+      width: 55px; height: 55px;
+      background: url(../static/img/loader.png) 0 0;
+      animation: loader 1s infinite steps(8);
+      /* 把文本隐藏起来 */
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">Loading...</div>
+</body>
+</html>
