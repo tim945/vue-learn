@@ -1,0 +1,37 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-11-20 09:21:01
+ * @LastEditors: tim
+ * @LastEditTime: 2020-11-20 09:32:16
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .line {
+      width: 300px;
+      padding: .5em;
+      line-height: 1.5;
+      background: beige;
+      background-image: linear-gradient( rgba(0,0,0,.2) 50%, transparent 0);
+      background-size: auto 3em;
+      background-origin: content-box;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="line">
+    在事件处理程序中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
+  </div>
+</body>
+</html>
