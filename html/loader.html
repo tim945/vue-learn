@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-11-20 16:39:44
  * @LastEditors: tim
- * @LastEditTime: 2020-11-20 16:44:15
+ * @LastEditTime: 2020-11-20 17:20:24
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -24,9 +24,47 @@
       white-space: nowrap;
       overflow: hidden;
     }
+
+    /* 闪烁效果 */
+    @keyframes blink-smooth { to { color: transparent } }
+    .highlight {
+     animation: .5s blink-smooth infinite alternate;
+    }
+
+    /* 打字动画：CSS */
+    @keyframes typing {
+      from { width: 0 }
+    }
+    @keyframes caret {
+      50% { border-color: transparent; }
+    }
+    
+    h1 {
+      font-family: Consolas,Monaco,monospace;
+      width: 20ch; /* 文本的宽度 */
+      white-space:nowrap;
+      border-right: .05em solid;      
+      overflow: hidden;
+      animation: typing 8s;
+      /* animation: typing 6s steps(15), caret 1s steps(1) infinite; */
+    }
   </style>
 </head>
 <body>
   <div class="loader">Loading...</div>
+
+  <h2 class="highlight">闪烁效果</h2>
+
+  <h1>
+    打字动画：CSS is awesome!
+  </h1>
+
+  <script>
+    document.querySelectorAll('h1').forEach(function(h1) {
+      var len = h1.textContent.length, s = h1.style;
+      s.width = len + 'ch';
+      s.animationTimingFunction = "steps("+len+"),steps(1)";
+    });
+  </script>
 </body>
 </html>
