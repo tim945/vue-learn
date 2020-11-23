@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-09 17:02:38
  * @LastEditors: tim
- * @LastEditTime: 2020-11-13 10:45:25
+ * @LastEditTime: 2020-11-23 10:18:06
  * @Description: 
  -->
 
@@ -65,7 +65,7 @@ arr.toString().split(",").sort((a,b)=>{ return a-b}).map(Number)
 Array.prototype.map = function (callback) {
     var arr = this;
     return arr.reduce((acc, cur, i) => {
-        acc.push(callback(cur, i, arr));
+        acc.push(callback(cur, i, arr));  // 将callback执行结果push入数组
         return acc
     }, []);
 }
