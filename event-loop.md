@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-01 17:01:57
  * @LastEditors: tim
- * @LastEditTime: 2020-11-11 14:37:27
+ * @LastEditTime: 2020-11-23 15:54:43
  * @Description: JS事件循环  
  -->
 # event loop 事件循环
@@ -292,6 +292,8 @@ new Promise(function(resolve) {
 // rejected: [object Promise]
 // fulfilled: resolve
 // rejected: reject
+
+// 在回调函数中 resolve 具有 “拆箱” 能力，reject 则没有
 var p1 = new Promise(function(resolve, reject){
   resolve(Promise.resolve('resolve'));
 });
