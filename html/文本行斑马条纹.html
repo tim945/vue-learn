@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-11-20 09:21:01
  * @LastEditors: tim
- * @LastEditTime: 2020-11-20 15:25:54
+ * @LastEditTime: 2020-11-24 09:44:51
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -74,6 +74,11 @@
       /* transition: .5s cubic-bezier(.25,.1,.3,1.5); */
       transition: .5s cubic-bezier(.25,.1,.3,1);
     }
+
+    #box1 {
+      position: absolute;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -111,6 +116,46 @@ ellipsis 发挥作用， 我们还需要为那一列指定宽度。 这就行了
         </td>
       </tr>
     </table>
+
+    <div style="position: relative;">
+      <span id="box1">First Box</span>
+    </div> 
+    <script>
+    function animateIt(elementId) {
+      var elem = document.getElementById(elementId); // 在动画函数animateLt内部， 获取DOM元素的引用
+      var tick = 0; // 创建一个计时器用于记录动画执行的次数
+    //   var timer = setInterval(function() { // 创建并启动一个JavaScript内置的计时器， 传入一个回调函数
+    //     if (tick < 100) {
+    //       elem.style.left = elem.style.top = tick + "px";
+    //       tick++;
+    //     } // 每隔10毫秒调用一次计时器的回调函数， 调整元素的位置100次
+    //     else {
+    //       clearInterval(timer);
+    //       console.log(tick === 100, // 执行了100次之后， 停止计时器， 并验证我们还可以看到与执行动画有关的变量
+    //       "Tick accessed via a closure.");
+    //       console.log(elem,
+    //       "Element also accessed via a closure.");
+    //       console.log(timer,
+    //       "Timer reference also obtained via a closure.");
+    //     }
+    //   }, 100); // setInterval函数的持续时间为10毫秒， 也就是说回调函数每隔10毫秒调用一次
+
+      // 使用 requestAnimationFrame，动画比较流畅
+      var move = function() {
+        console.log(tick)
+        if (tick < 800) {
+          // elem.style.left = elem.style.top = tick + "px";
+          elem.style.left = tick + "px";
+          tick++;
+          requestAnimationFrame(move)
+        } else {    
+          console.log(elem, "Element also accessed via a closure.");
+        }
+      }
+      requestAnimationFrame(move)
+    }
+    animateIt("box1"); // 全部设置完成之后， 我们可以执行动画函数并查看动画效果
+    </script>
   </div>
 
   <footer>
