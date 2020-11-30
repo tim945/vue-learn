@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-08 17:02:22
  * @LastEditors: tim
- * @LastEditTime: 2020-11-11 14:03:04
+ * @LastEditTime: 2020-11-30 18:10:25
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -109,7 +109,7 @@
 
       // 千分位&格式化
       function format (num) {
-        return num.toFixed(2).replace(/\B(?=(\d{3})+\b)/g, ",").replace(/^/, "$$ ");  // 使用 $$ ，何意？
+        return num.toFixed(2).replace(/\B(?=(\d{3})+\b)/g, ",").replace(/^/, "$$ ");  // 使用 $$ ，何意？ --> 美元符号
       };
       console.log( format(1888) );
       // => "$ 1,888.00"
@@ -131,7 +131,7 @@
       var result = string.replace(regex, "$2/$3/$1");
 
       // 反向引用
-      var regex = /\d{4}[-|\.|\/]\d{2}\1\d{2}/;
+      var regex = /\d{4}([-|\.|\/])\d{2}\1\d{2}/;
       regex.test("2017-06-12");
       
       // 将每个单词的首字母转换为大写
