@@ -2,8 +2,8 @@
  * @Author: tim
  * @Date: 2020-09-08 17:02:22
  * @LastEditors: tim
- * @LastEditTime: 2020-12-01 10:10:41
- * @Description: 
+ * @LastEditTime: 2020-12-03 11:12:44
+ * @Description: 一花独放不是春，百花齐放春满园, 纸上得来终觉浅，觉知此事要躬行。
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -168,8 +168,55 @@
       });
       // 结果： 我是姓名，年龄18
 
+      // 提取
+      // 使用 match
+      var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+      var string = "2017-06-26";
+      console.log( string.match(regex) );
+      // =>["2017-06-26", "2017", "06", "26", index: 0, input: "2017-06-26"]
 
-      
+      // 使用 exec
+      var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+      var string = "2017-06-26";
+      console.log( regex.exec(string) );
+      //  => ["2017-06-26", "2017", "06", "26", index: 0, input: "2017-06-26", groups: undefined]
+
+      // 使用 test
+      var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+      var string = "2017-06-26";
+      regex.test(string);
+      console.log( RegExp.$1, RegExp.$2, RegExp.$3 );
+      // => "2017" "06" "26
+
+      // 使用 search
+      var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+      var string = "2017-06-26";
+      string.search(regex);
+      console.log( RegExp.$1, RegExp.$2, RegExp.$3 );
+      // => "2017" "06" "26
+
+      // 使用 replace
+      var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+      var string = "2017-06-26";
+      var date = []
+      string.replace(regex, function(match, year, month, day) {
+        date.push(year, month, day)
+      })
+
+      // 使用 split
+      var regex = /\.|\-|\//;
+      var string = "2017-06-26";
+      "2017-06.26".split(regex)
+
+
+      // 类型判断
+      var utils = {};
+      "Boolean|Number|String|Function|Array|Date|RegExp|Object|Error".split("|").forEach(function(item) {
+        utils["is" + item] = function(obj) {
+          return {}.toString.call(obj) == "[object " + item + "]";
+        };
+      });
+      console.log( utils.isArray([1, 2, 3]) );
 
       // 总结
       // • 贪婪量词“试”的策略是：买衣服砍价。价钱太高了，便宜点，不行，再便宜点。
