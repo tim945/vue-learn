@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-09-08 17:02:22
  * @LastEditors: tim
- * @LastEditTime: 2020-09-11 14:19:57
+ * @LastEditTime: 2020-12-01 10:10:41
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -109,7 +109,7 @@
 
       // 千分位&格式化
       function format (num) {
-        return num.toFixed(2).replace(/\B(?=(\d{3})+\b)/g, ",").replace(/^/, "$$ ");  // 使用 $$ ，何意？
+        return num.toFixed(2).replace(/\B(?=(\d{3})+\b)/g, ",").replace(/^/, "$$ ");  // 使用 $$ ，何意？ --> 美元符号
       };
       console.log( format(1888) );
       // => "$ 1,888.00"
@@ -131,7 +131,7 @@
       var result = string.replace(regex, "$2/$3/$1");
 
       // 反向引用
-      var regex = /\d{4}[-|\.|\/]\d{2}\1\d{2}/;
+      var regex = /\d{4}([-|\.|\/])\d{2}\1\d{2}/;
       regex.test("2017-06-12");
       
       // 将每个单词的首字母转换为大写
@@ -147,6 +147,29 @@
 
       //  身份证
       var regex = /^(\d{15}|\d{17}[\dxX])$/;      
+
+      // 极简的模板引擎
+      // 正则表示默认是贪婪匹配，如果实现懒惰匹配，在量词元字符后面添加一个？即可。
+      // 如果使用贪婪匹配，我们会匹配到最后一个}}，而不是第一个结束的}}。
+      function render(tpl, data) {
+        // var regex = /\{\{(.+?)\}\}/g  // 未考虑空格
+        var regex = /\{\{[\s]*(\w+?)[\s]*\}\}/g
+        return tpl.replace(regex, function($1, $2) {
+          // $1 分组为 类似 {{name}}
+          // $2 分组为 类似 name
+          // 加上面的小括号就是为了方便拿到key而已
+          return data[$2];
+        });
+      }
+
+      render("我是{{name}}，年龄{{age}}", {
+        name: "lucifer",
+        age: 17
+      });
+      // 结果： 我是姓名，年龄18
+
+
+      
 
       // 总结
       // • 贪婪量词“试”的策略是：买衣服砍价。价钱太高了，便宜点，不行，再便宜点。

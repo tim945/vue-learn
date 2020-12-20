@@ -1,0 +1,193 @@
+<!--
+ * @Author: tim
+ * @Date: 2020-11-20 09:21:01
+ * @LastEditors: tim
+ * @LastEditTime: 2020-11-30 16:54:09
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      /* flex-direction: column; */
+      flex-flow: column;
+      min-height: 100vh;
+    }
+
+    .main {
+      flex: 1;
+    }
+
+    .line {
+      width: 300px;
+      padding: .5em;
+      line-height: 1.5;
+      background: beige;
+      background-image: linear-gradient( rgba(0,0,0,.2) 50%, transparent 0);
+      background-size: auto 3em;
+      background-origin: content-box;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .table {
+      width: 500px;
+      table-layout: fixed;
+    }
+
+    footer {
+      background: #333; 
+      color: #fff;
+      padding: 1em;
+      /* 页面宽小于900px时，左右 padding 为0 */
+      padding: 1em calc(50% - 450px); 
+    }
+    .wrapper {
+      max-width: 900px;
+      margin: 1em auto;
+    }
+
+    h1 {
+      font-size: 16px;
+    }
+    .main .title {
+      font-size: 18px;
+    }
+    .main .title.show {
+      font-size: 22px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      /* height: 0; */
+      transform: scale(0);
+      /* transition: all .5s; */
+      transition: .25s;
+      transform-origin: 1.4em -.4em;
+      overflow: hidden;
+    }
+    .title.show {
+      font-size: 20px;
+      /* height: auto; */
+      /* max-height: 300px; */
+      /* height: 80px; */
+      transform: scale(1);
+      /* transition: .5s cubic-bezier(.25,.1,.3,1.5); */
+      transition: .5s cubic-bezier(.25,.1,.3,1);
+    }
+
+    #box1 {
+      position: absolute;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="line">
+      在事件处理程序中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
+    </div>
+    <p>
+      <button id="btnShow">SHOW</button>
+    </p>
+    <h1 class="title">精确控制表格列宽</h1>
+    <p>
+      这种固定表格布局算法不仅更容易预测、 便于使用， 同时也明显更快。
+因为表格的内容并不会影响单元格的宽度， 所以在页面的下载过程中， 表格
+不需要频繁重绘。 </p> 
+<p>相信我们都对页面加载过程中表格不断重新调整列宽的恐
+怖情景记忆犹新。 对于固定表格布局来说， 这种情况再也不会发生了。
+在使用时， 我们只需要对 table 元素或其他具有 display: table 样
+式的元素应用这个属性即可。 </p>
+<p>
+请注意， 为了确保这个技巧奏效， 需要为这
+些表格元素指定一个宽度（ 哪怕是 100%）。 同样， 为了让 text-overflow:
+ellipsis 发挥作用， 我们还需要为那一列指定宽度。 这就行了！ 
+    </p>
+    <table class="table">
+      <tr>
+        <td width="150">表格的每一行都会参与到列宽的计算中，而不仅是第一行</td>
+        <td width="100">指定单元格的宽度，则这些单元格就会根据它们内容的长短来分配宽度。也就是说，内容较长的单元格所能分配到的宽度也较多</td>
+        <td width="100">注意，这个表格的列宽分配结果跟上面那个表格不同</td>
+        <td width="120">
+          如果我们禁止文本折行行为，那么表格宽度可能会远远超出其容器的宽度
+        </td>
+        <td width="130">
+          注意，这个表格的列宽分配结果跟上面那个表格不同
+        </td>
+      </tr>
+    </table>
+
+    <div style="position: relative;">
+      <span id="box1">First Box</span>
+    </div> 
+    <script>
+    function animateIt(elementId) {
+      var elem = document.getElementById(elementId); // 在动画函数animateLt内部， 获取DOM元素的引用
+      var tick = 0; // 创建一个计时器用于记录动画执行的次数
+    //   var timer = setInterval(function() { // 创建并启动一个JavaScript内置的计时器， 传入一个回调函数
+    //     if (tick < 100) {
+    //       elem.style.left = elem.style.top = tick + "px";
+    //       tick++;
+    //     } // 每隔10毫秒调用一次计时器的回调函数， 调整元素的位置100次
+    //     else {
+    //       clearInterval(timer);
+    //       console.log(tick === 100, // 执行了100次之后， 停止计时器， 并验证我们还可以看到与执行动画有关的变量
+    //       "Tick accessed via a closure.");
+    //       console.log(elem,
+    //       "Element also accessed via a closure.");
+    //       console.log(timer,
+    //       "Timer reference also obtained via a closure.");
+    //     }
+    //   }, 100); // setInterval函数的持续时间为10毫秒， 也就是说回调函数每隔10毫秒调用一次
+
+      // 使用 requestAnimationFrame，动画比较流畅
+      var move = function() {
+        console.log(tick)
+        if (tick < 800) {
+          // elem.style.left = elem.style.top = tick + "px";
+          elem.style.left = tick + "px";
+          tick++;
+          requestAnimationFrame(move)
+        } else {    
+          console.log(elem, "Element also accessed via a closure.");
+        }
+      }
+      requestAnimationFrame(move)
+    }
+    animateIt("box1"); // 全部设置完成之后， 我们可以执行动画函数并查看动画效果
+    </script>
+  </div>
+
+  <footer>
+    <!-- <div class="wrapper"> -->
+    <!-- 页脚的内容写在这里 -->
+    在过去的几年间， 有一种网页设计手法逐渐流行起来， 我将它称作背景宽度满幅， 内容宽度固定。 
+    <!-- </div> -->
+  </footer>
+
+  <script>
+    var isShow = false
+    var btn = document.querySelector("#btnShow")
+    var title = document.querySelector(".title")
+
+    btn.addEventListener('click', function show() {
+      if (isShow) {
+        title.classList.remove('show')
+      } else {
+        title.classList.add('show')
+      }
+      isShow = ! isShow
+    })
+  </script>
+</body>
+</html>

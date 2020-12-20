@@ -7,10 +7,12 @@
   </div>
 
   <div v-else class="message-box">
-    <p class="title">
+    <p class="title" :class="{'dis-block':! options.msgCode}">
       <span class="code" v-if="options.msgCode">{{ options.msgCode }}：</span>
       <span v-if="isISC999">{{ options.defaultMsg }}</span>
-      <span v-else v-html="options.message"></span>
+      <!-- <span v-else v-html="options.message"></span> -->
+      <!-- <span v-else>{{options.message}}</span> -->
+      <message-info v-else :message="options.message"></message-info>
     </p>
     <p class="more-box" v-if="isISC999">
       <a class="show-more" @click="showMore">{{ options.showMoreText }}</a>
@@ -24,6 +26,9 @@
 <script>
 export default {
   name: 'Message',
+  components:{
+    MessageInfo:() => import('./MessageInfo')
+  },
   props: {
     options: {
       type: Object,
@@ -56,3 +61,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.message-box .dis-block {
+  display: block;
+}
+</style>

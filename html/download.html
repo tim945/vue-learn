@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-09 15:02:01
  * @LastEditors: tim
- * @LastEditTime: 2020-09-15 14:17:31
+ * @LastEditTime: 2020-10-09 14:00:26
  * @Description: 
  -->
  <!DOCTYPE html>
@@ -20,9 +20,11 @@
      <button type="button" onclick="download()">download</button>
    </form>
    
+   <img id="pic" />
 
    <script>
-     let reader = new FileReader();     
+     let reader = new FileReader();  
+     let pic = document.querySelector('#pic');   
 
     function download() {      
       // 获取文件对象
@@ -44,6 +46,8 @@
       reader.onload = function(e) {
         let fileBlob = e.target.result
         debugger
+
+        pic.src = fileBlob
 
         let parts = fileBlob.split(';base64,');
         let contentType = parts[0].split(':')[1];
@@ -74,7 +78,7 @@
     }
 
     // 通过AJAX请求返回blob数据
-    function downloadFile(record) {
+    /* function downloadFile(record) {
       axios({
         method: 'get',
         url: url,
@@ -97,7 +101,7 @@
       }).catch(err => {
         
       })
-    }
+    } */
    </script>
  </body>
  </html>

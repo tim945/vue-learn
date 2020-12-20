@@ -96,14 +96,57 @@
   document.querySelector('#throttle').addEventListener('click', throttle(getUserAction, 1000))
   </script>
 
-script start
-async1 start
-async2
-async1 end
-script end
-promise1
-promise2
-setTimeout
+
+  <p>通过 requestAnimationFrame 触发滚动事件</p>
+
+  window.requestAnimationFrame() <b>这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数</b>。这个方法接受一个函数为参，该函数会在重绘前调用。<br/>
+
+  rAF 常用于 web 动画的制作，用于准确控制页面的帧刷新渲染，让动画效果更加流畅，当然它的作用不仅仅局限于动画制作，我们可以利用它的特性将它视为一个定时器。（当然它不是定时器）<br/>
+
+  通常来说，rAF 被调用的频率是每秒 60 次，也就是 1000/60 ，触发频率大概是 16.7ms 。（当执行复杂操作时，当它发现无法维持 60fps 的频率时，它会把频率降低到 30fps 来保持帧数的稳定。） <br />
+
+  rAF 不属于宏任务，但也不是微任务，排在微任务之后。
+
+  <script>
+    var ticking = false; // rAF 触发锁
+ 
+    function onScroll(){
+      if(!ticking) {
+        ticking = true;
+        requestAnimationFrame(realFunc);
+      }
+    }
+      
+    function realFunc(){
+        // do something...
+        console.log("Success");
+        ticking = false;
+    }
+    // 滚动事件监听
+    window.addEventListener('scroll', onScroll, false);
+  </script>
+
+
+setTimeout的执行只是在内存中对图像属性进行改变，这个变化必须要等到屏幕下次刷新时才会被更新到屏幕上。<br />
+
+如果两者的步调不一致，就可能会导致中间某一帧的操作被跨越过去，而直接更新下一帧的图像。<br />
+
+假设屏幕每隔1000ms/60 = 16.7ms刷新一次，而setTimeout每隔10ms设置图像向左移动1px， 就会出现如下绘制过程：<br />
+
+第0ms: 屏幕未刷新，等待中，setTimeout也未执行，等待中；<br />
+
+第10ms: 屏幕未刷新，等待中，setTimeout开始执行并设置图像属性left=1px；<br />
+
+第16.7ms: 屏幕开始刷新，屏幕上的图像向左移动了1px， setTimeout 未执行，继续等待中；<br />
+
+第20ms: 屏幕未刷新，等待中，setTimeout开始执行并设置left=2px;<br />
+
+第30ms: 屏幕未刷新，等待中，setTimeout开始执行并设置left=3px;<br />
+
+第33.4ms:屏幕开始刷新，屏幕上的图像向左移动了3px， setTimeout未执行，继续等待中；<br />
+
+…
+
 
 </body>
 </html>

@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-07-28 14:22:53
  * @LastEditors: tim
- * @LastEditTime: 2020-07-28 14:46:22
+ * @LastEditTime: 2020-11-12 13:59:12
  * @Description: 理解模块间通信
 -->
 <!DOCTYPE html>
@@ -22,11 +22,11 @@
         var count = 0;
         var button = document.getElementById("count");
         button.onclick = function () {
-          Event.trigger("add", ++count);
+          Event.trigger("add", ++count);  // 发布
         };
 
         var div = document.getElementById("showcount");
-        Event.listen("add", function (count) {
+        Event.listen("add", function (count) {  // 订阅
           div.innerHTML = count
         });
       })();

@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-04-01 17:01:57
  * @LastEditors: tim
- * @LastEditTime: 2020-09-09 11:05:37
+ * @LastEditTime: 2020-11-23 15:54:43
  * @Description: JS事件循环  
  -->
 # event loop 事件循环
@@ -11,8 +11,8 @@
 
 作为前端，提起JS，都知道它是一门单线程的语言，只能从上到下顺序执行JS任务，而任务又分为同步任务和异步任务，常见的如Ajax请求、setTimeout、setInterval、点击事件的回调函数等等都是异步任务。当我们的JS逻辑写的越来越复杂，可能会发现一些逻辑的执行顺序跟我们预想的不一样，或者压根就没执行，这时候深入理解一下JS中事件循环的逻辑就显得势在必行了，更不用提现今前端框架如此流行，弄清了事件循环机制，才能对框架的生命周期，数据更新策略等有更深入的理解。
 
-写在前面
-浏览器是多进程的（注意不是线程），这里面包括Browser进程（主进程）、第三方插件进程、GPU进程和浏览器渲染进程，而渲染进程又称为浏览器内核，这个就跟我们前端有比较大的联系了。当我们在浏览器中每开一个tab页面，就相当于起了一个新的进程，该页面的渲染、js执行、事件的执行都是在这一个进程内。而每个渲染进程内可以包含多个线程，主要有：GUI渲染线程、JS引擎线程、事件触发线程、定时器触发线程、异步请求线程等。其中，GUI渲染线程和JS引擎线程是互斥的，两者同时只能有一个在运行，这就是为什么常说JS的执行会卡住页面，影响页面渲染（JS可能会操作dom元素）。说了这些，其实还没涉及到今天的主角，而浏览器的进程机制又是一些更深入的知识点了，今天不展开（也展不开，还没弄明白），下面我们进入今天的主角，JS事件循环。
+写在前面(**一个进程里可以有多个线程**)
+浏览器是多进程的（注意不是线程），这里面包括Browser进程（主进程）、第三方插件进程、GPU进程和浏览器渲染进程，而渲染进程又称为浏览器内核，这个就跟我们前端有比较大的联系了。当我们在浏览器中每开一个tab页面，就相当于起了一个新的进程，该页面的渲染、js执行、事件的执行都是在这一个进程内。而每个渲染进程内可以包含多个线程，主要有：**GUI渲染线程**、**JS引擎线程**、**事件触发线程**、**定时器触发线程**、**异步请求线程**等。其中，GUI渲染线程和JS引擎线程是互斥的，两者同时只能有一个在运行，这就是为什么常说JS的执行会卡住页面，影响页面渲染（JS可能会操作dom元素）。说了这些，其实还没涉及到今天的主角，而浏览器的进程机制又是一些更深入的知识点了，今天不展开（也展不开，还没弄明白），下面我们进入今天的主角，JS事件循环。
 
 事件循环
 这部分我们来搞清楚什么是一个完整的事件循环？每一个循环内的任务执行顺序是怎样的？下一次循环中的任务从哪里来？
@@ -42,11 +42,13 @@ setTimeout是作为异步任务进入到Event Table中的，所以即使说setTi
 
 写到这里，我们还明白了为什么有时候明明写的延迟3s执行的fn却没有按时执行，那就是因为3s后虽然fn已经到了Event Queue中，但是执行栈并没有空下来，必须等到执行栈为空，才能将fn取出来放到执行栈去执行，这也是为什么进程内要单独开一个**定时器触发线程**来处理这类倒计时事件，这样才能保证延迟时间的准确性。
 
+**异步任务又分为宏任务和微任务，JS 运行时任务队列会分为宏任务队列和微任务队列，分别对应宏任务和微任务。**
+
 宏任务（macrotask）
 宏任务主要包括主代码块，setTimeout、setInterval等，浏览器为了能够使得JS内部事件循环与DOM任务能够有序的执行，会在一个事件循环结束后，在下一个 task 执行开始前，对页面进行重新渲染 （task->渲染->task->…） ，**setTimeout的作用是等待给定的时间后为它的回调产生一个新的宏任务**。
 
 微任务（microtask）
-微任务主要包括promise.then()，process.nextTick，mutation observe的回调等。微任务会在这一次事件循环中的宏任务执行完成后执行，比如对一系列动作做出反馈，或或者是需要异步的执行任务而又不需要分配一个新的 task，这样便可以减小一点性能的开销。只要执行栈中没有其他的js代码正在执行且每个宏任务执行完，微任务队列会立即执行。如果在微任务执行期间微任务队列加入了新的微任务，会将新的微任务加入队列尾部，之后也会被执行。
+微任务主要包括promise.then()，process.nextTick，mutation observe的回调等。微任务会在这一次事件循环中的宏任务执行完成后执行，比如对一系列动作做出反馈，或者是需要异步的执行任务而又不需要分配一个新的 task，这样便可以减小一点性能的开销。只要执行栈中没有其他的js代码正在执行且每个宏任务执行完，微任务队列会立即执行。如果在微任务执行期间微任务队列加入了新的微任务，会将新的微任务加入队列尾部，之后也会被执行。
 
 简单总结下，宏任务（macrotask）事件都被放到了一个事件队列（Event Queue）中，这个队列由事件触发线程维护；微任务（microtask）事件放到了微任务队列（Job Queues）中，等待宏任务（在当前事件循环）执行完成后执行，这个队列由JS引擎线程维护。
 
@@ -284,6 +286,54 @@ new Promise(function(resolve) {
 }).then(function() { 
     console.log('then'); 
 })
+```
+
+``` js
+// rejected: [object Promise]
+// fulfilled: resolve
+// rejected: reject
+
+// 在回调函数中 resolve 具有 “拆箱” 能力，reject 则没有
+var p1 = new Promise(function(resolve, reject){
+  resolve(Promise.resolve('resolve'));
+});
+
+var p2 = new Promise(function(resolve, reject){
+  resolve(Promise.reject('reject'));
+});
+
+var p3 = new Promise(function(resolve, reject){
+  reject(Promise.resolve('resolve'));
+});
+
+p1.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p2.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p3.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+/* Promise回调函数中的第一个参数resolve，会对Promise执行"拆箱"动作。即当resolve的参数是一个Promise对象时，resolve会"拆箱"获取这个Promise对象的状态和值，但这个过程是异步的。p1"拆箱"后，获取到Promise对象的状态是resolved，因此fulfilled回调被执行；p2"拆箱"后，获取到Promise对象的状态是rejected，因此rejected回调被执行。但Promise回调函数中的第二个参数reject不具备”拆箱“的能力，reject的参数会直接传递给then方法中的rejected回调。因此，即使p3 reject接收了一个resolved状态的Promise，then方法中被调用的依然是rejected，并且参数就是reject接收到的Promise对象。 */
 ```
 
 参考链接：
