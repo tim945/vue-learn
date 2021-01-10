@@ -1,0 +1,167 @@
+// 编译排版格式:--style expanded compact compressed 
+// sass静默注释，其内容不会出现在生成的css文件中。静默注释的语法跟JavaScriptJava等类C的语言中单行注释的语法相同，
+// 它们以//开头，注释内容直到行末。
+
+@import 'base';
+
+$nav-color: #F90;
+
+body {
+  font-size: 14px;
+}
+
+.nav {
+  $width: 100px;
+  width: $width;
+  color: $nav-color;
+}
+
+/* 父选择器 & */
+article a {
+  color: blue;
+
+  &:hover {
+    color: red
+  }
+}
+
+#content aside {
+  color: red;
+
+  body.ie & {
+    color: green
+  }
+
+  // --> body.ie #content aside { color: green }
+}
+
+.container {
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: .8em
+  }
+
+  // --> .container h1, .container h2, .container h3 { margin-bottom: .8em }
+}
+
+article {
+  ~article {
+    border-top: 1px dashed #ccc
+  }
+
+  >section {
+    background: #eee
+  }
+
+  dl> {
+    dt {
+      color: #333
+    }
+
+    dd {
+      color: #555
+    }
+  }
+
+  nav+& {
+    margin-top: 0
+  }
+}
+
+// 嵌套属性
+nav {
+  // ***************** 注意 border 后面的分号 *****************
+  border: {
+    style: solid;
+    width: 1px;
+    color: #ccc;
+  }
+}
+
+// 引用import内的变量
+$fancybox-width: 500px;  // 重新定义变量值
+.fancybox {
+  width: $fancybox-width;
+}
+
+.fancy {
+  border: 1px solid #000;
+  @import "im";
+}
+
+// 使用混合器
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  @include rounded-corners;
+  @include link-colors(#F90, red, green);
+}
+
+.message a {
+  @include link-colors(
+    $normal: blue,
+    $visited: green,
+    $hover: red
+  );
+}
+
+@include firefox-message(".header");
+
+//通过选择器继承继承样式
+// 假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所应用的样式。
+// 举例来说， 如果.seriousError@extend.important.error ， 那么.important.error 和h1.important.error 的样式都会被.seriousError继承， 
+// 但是.important或者.error下的样式则不会被继承。
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+
+//.seriousError从.error继承样式
+.error a {  //应用到.seriousError a
+  color: red;
+  font-weight: 100;
+}
+h1.error { //应用到hl.seriousError
+  font-size: 1.2rem;
+}
+
+// 跟混合器相比，继承生成的css代码相对更少。因为继承仅仅是重复选择器，而不会重复属性，所以使用继承往往比混合器生成的css体积更小。
+// 继承遵从css层叠的规则。当两个不同的css规则应用到同一个html元素上时，并且这两个不同的css规则对同一属性的修饰存在不同的值，css层叠规则会决定应用哪个样式。
+// 相当直观：通常权重更高的选择器胜出，如果权重相同，定义在后边的规则胜出。
+
+p {
+  $font-size: 12px;
+  $line-height: 30px;
+  font: #{$font-size}/#{$line-height};
+}
+
+// 控制指令 
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+//@for start through/to end 的区别是：to不包含end
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}

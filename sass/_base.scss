@@ -1,0 +1,28 @@
+$fancybox-width: 400px !default; // 设置默认值
+
+// 混合器
+@mixin rounded-corners {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+// 混合器传参
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &:visited {
+    color: $visited;
+  }
+}
+
+@mixin firefox-message($selector) {
+  // 注意此处动态属性写法
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
