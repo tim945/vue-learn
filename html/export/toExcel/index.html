@@ -1,0 +1,56 @@
+<!--
+ * @Author: tim
+ * @Date: 2021-01-13 10:18:01
+ * @LastEditors: tim
+ * @LastEditTime: 2021-01-13 10:21:09
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script src="export.js"></script>
+<script>
+    // tHeader和tbody的数据需要一一对应
+    let tHeader = [
+		'鲜花',
+		'颜色',
+		'照片'
+	]
+	let tbody = [
+		{
+			name: '玫瑰花',
+			color: '红色',
+			pic: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2801998497,4036145562&fm=27&gp=0.jpg'
+		},
+		{
+			name: '菊花',
+			color: '黄色',
+			pic: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1506844670,1837003941&fm=200&gp=0.jpg'
+		},
+		{
+			name: '牵牛花',
+			color: '紫色',
+			pic: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3056120770,1115785765&fm=27&gp=0.jpg'
+		},
+		{
+			name: '梅花',
+			color: '白色',
+			pic: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2700343322,3431874915&fm=27&gp=0.jpg'
+		},
+		{
+			name: '桃花花',
+			color: '粉色',
+			pic: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=602076004,4209938077&fm=27&gp=0.jpg'
+		}
+	]
+	export2Excel(tHeader, tbody, '我爱花朵')
+</script>
+
+</body>
+</html>
