@@ -1,0 +1,35 @@
+Axure 快捷键
+Windows 的 Ctrl 相当于 Mac OS 的 command
+控件编辑快捷键
+群组：Ctrl + G
+取消群组：Ctrl + Shift + G
+全选：Ctrl + A
+上移一层：Ctrl + ]
+置于顶层：Ctrl +Shift + ]
+下移一层：Ctrl + [
+置于底层：Ctrl + Shift + [
+左对齐：Ctrl + Alt +L
+居中对齐：Ctrl + Alt + C
+右对齐：Ctrl + Alt + R
+顶端对齐：Ctrl + Alt + T
+垂直居中对齐：Ctrl + Alt + M
+底端对齐：Ctrl + Alt + B
+水平分布：Ctrl + Shift + H
+垂直分布：Ctrl + Shift + U
+锁定位置和尺寸：Ctrl + K
+解锁位置和尺寸：Ctrl + Shift + K
+基本快捷键
+打开：Ctrl + O
+新建：Ctrl + N
+保存：Ctrl + S
+退出：Alt + F4(MAC：command + q)
+复制：Ctrl + C
+剪切：Ctrl + X
+粘贴：Ctrl + V
+快速复制：点击拖拽＋Ctrl
+撤销：Ctrl + Z
+重做：Ctrl + shift + Z
+全选：Ctrl + A
+多选：Shitf ＋ 鼠标单击
+放大画布：Ctrl + +
+缩小画布：Ctrl + －
