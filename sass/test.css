@@ -12,6 +12,7 @@ body {
 article a {
   color: blue;
 }
+
 article a:hover {
   color: red;
 }
@@ -19,6 +20,7 @@ article a:hover {
 #content aside {
   color: red;
 }
+
 body.ie #content aside {
   color: green;
 }
@@ -26,21 +28,25 @@ body.ie #content aside {
 .container h1,
 .container h2,
 .container h3 {
-  margin-bottom: 0.8em;
+  margin-bottom: .8em;
 }
 
 article ~ article {
   border-top: 1px dashed #ccc;
 }
+
 article > section {
   background: #eee;
 }
+
 article dl > dt {
   color: #333;
 }
+
 article dl > dd {
   color: #555;
 }
+
 nav + article {
   margin-top: 0;
 }
@@ -58,6 +64,7 @@ nav {
 .fancy {
   border: 1px solid #000;
 }
+
 .fancy aside {
   background: blue;
   color: white;
@@ -66,14 +73,14 @@ nav {
 .notice {
   background-color: green;
   border: 2px solid #00aa00;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   color: #F90;
 }
+
 .notice:hover {
   color: red;
 }
+
 .notice:visited {
   color: green;
 }
@@ -81,9 +88,11 @@ nav {
 .message a {
   color: blue;
 }
+
 .message a:hover {
   color: red;
 }
+
 .message a:visited {
   color: green;
 }
@@ -126,6 +135,10 @@ p {
   width: 4em;
 }
 
+.item-3 {
+  width: 6em;
+}
+
 .puma-icon {
   background-image: url("/images/puma.png");
 }
@@ -141,5 +154,4 @@ p {
 .salamander-icon {
   background-image: url("/images/salamander.png");
 }
-
 /*# sourceMappingURL=test.css.map */

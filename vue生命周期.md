@@ -2,7 +2,7 @@
  * @Author: tim
  * @Date: 2020-05-19 11:04:22
  * @LastEditors: tim
- * @LastEditTime: 2020-05-19 11:05:15
+ * @LastEditTime: 2021-04-02 09:58:30
  * @Description: 
 --> 
 
@@ -15,11 +15,11 @@
 
 父组件挂载完毕肯定是等里面的子组件都挂载完毕后才算父组件挂载完毕了，所以父组件的mounted在最后。
 
-子组件更新过程(子组件更新影响到父组件的情况)：父beforeUpdate -> 子beforeUpdate->子updated -> 父updted
+子组件更新过程(子组件更新影响到父组件的情况)：父beforeUpdate -> 子beforeUpdate->子updated -> 父updated
 
 子组件更新过程(子组件更新不影响父组件的情况)：子beforeUpdate -> 子updated
 
-父组件更新过程(父组件影响子组件的情况)：父beforeUpdate -> 子beforeUpdate->子updated -> 父updted
+父组件更新过程(父组件影响子组件的情况)：父beforeUpdate -> 子beforeUpdate->子updated -> 父updated
 
 父组件更新过程(父组件不影响子组件的情况)：父beforeUpdate -> 父updated
 
